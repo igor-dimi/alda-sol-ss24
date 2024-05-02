@@ -4,27 +4,29 @@
     "href": "index.html",
     "title": "Algorithms & Data Structures Solutions - SoSe 24",
     "section": "",
-    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books."
+    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.",
+    "crumbs": [
+      "Preface"
+    ]
   },
   {
-    "objectID": "intro.html",
-    "href": "intro.html",
-    "title": "1  Introduction",
+    "objectID": "01/01.html",
+    "href": "01/01.html",
+    "title": "1  Blatt 01",
     "section": "",
-    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+    "text": "1.1 Aufgabe 2\n\\[\\begin{align*}\n    \\log(n!) &= \\log(\\prod_{i=1}^{n}i) \\tag{Def $n!$} \\\\\n             &= \\sum_{i=1}^{n}\\log(i) \\tag{Eig $\\log(\\bullet)$} \\\\\n             &\\leq \\sum_{i=1}^{n}\\log(n) \\tag{Eig $\\log(\\bullet)$} \\\\\n             &= n\\log(n)\n\\end{align*}\\]\nWaehle nun \\(c_0 := 1\\) und \\(n_0 := 1\\). Es folgt somit:\n\\[\\begin{align*}\n     &\\log(n!) \\leq 1\\cdot n\\log(n), \\quad \\forall n \\geq 1 \\\\\n\\iff &\\log(n!) \\in \\mathcal{O}(n\\log(n)) \\tag{Def $\\mathcal{O}$}\n\\end{align*}\\]\nZuerst bemerken wir die folgende Eigenschaft\n\\[\\begin{align*}\n    n\\log(n) &\\leq c\\log(n!) \\\\\n\\iff       c &\\geq \\frac{n\\log(n)}{\\log(n!)} \\\\\n             &= \\frac{n\\log(n)}{\\sum_{i=1}^{n}\\log(i)}\n\\end{align*}\\]\nWir definieren die Folge:\n\\[\\begin{align*}\n    c(n) &:= \\frac{n\\log(n)}{\\sum_{i=1}^{n}\\log(i)} \\\\\n         &= \\frac{\\overbrace{\\log(n) + \\dots + \\log(n)}^\\text{n-mal}}{\\log(1) + \\dots + \\log(n)}\n\\end{align*}\\]\nWir behaupten ohne Beweis, dass \\(c(n)\\) eine monoton fallende Folge ist. D.h. es gilt:\n\\[\nc(n) \\leq c(m), \\quad \\forall n \\geq m\n\\]\nSetze nun \\(n_0 := 10, c_0 := c(10) = \\frac{10\\log(10)}{\\sum_{i = 1}^{10}\\log(i)}\\). Somit folgt:\n\\[\\begin{align*}\n    n\\log(n) &\\leq \\left(\\frac{n\\log(n)}{\\sum_{i=1}^{n}\\log(i)}\\right)\\log(n!) \\\\\n             &= c(n)\\log(n!) \\\\\n             &\\leq c_0\\log(n!), \\quad \\forall n\\geq n_0 = 10 \\tag{$c(n)$ monoton fallend}\n\\end{align*}\\]",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Blatt 01</span>"
+    ]
   },
   {
-    "objectID": "summary.html",
-    "href": "summary.html",
-    "title": "2  Summary",
-    "section": "",
-    "text": "In summary, this book has no content whatsoever."
-  },
-  {
-    "objectID": "references.html",
-    "href": "references.html",
-    "title": "References",
-    "section": "",
-    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+    "objectID": "01/01.html#aufgabe-3",
+    "href": "01/01.html#aufgabe-3",
+    "title": "1  Blatt 01",
+    "section": "1.2 Aufgabe 3",
+    "text": "1.2 Aufgabe 3\n\n\n\nDa \\(f_1 \\in  \\mathcal{O}(g_1)\\) und \\(f_2 \\in  \\mathcal{O}(g_2)\\) existieren \\(n_1, n_2, c_1, c_2\\) s.d:\n\\[\\begin{align*}\nf_1(n) \\leq c_1 g_1(n), \\quad \\forall n\\geq n_1 \\\\\nf_2(n) \\leq c_2 g_2(n), \\quad \\forall n\\geq n_2\n\\end{align*}\\]\nSetze \\(c_0 := max\\{c_1, c_2\\}, n_0 := max\\{n_1, n_2\\}\\). Dann gilt\n\\[\\begin{align*}\n    (f_1 + f_2)(n) &= f_1(n) + f_2(n)  \\\\\n                   &\\leq c_1g_1(n) + c_2g_2(n), \\quad \\forall n \\geq n_0\n                   \\tag{$n \\geq n_0 \\Rightarrow n \\geq n_1 \\wedge n \\geq n_2$} \\\\\n                   &\\leq c_0g_1(n) + c_0g_2(n), \\quad \\forall n \\geq n_0 \\\\\n                   &= c_0(g_1 + g_2)(n) \\quad \\forall n \\geq n_0 \\\\\n    \\iff   f_1 + f_2 &\\in \\mathcal{O}(g_1 + g_2) \\tag{Def $\\mathcal{O}$}\n\\end{align*}\\]\n\n\n\nmit \\(f_1 \\in \\Theta(g_1), f_2 \\in \\Theta(g_2)\\) existieren \\(a_1, a_2, b_1, b_2, n_1, n_2\\), s.d.:\n\\[\\begin{align*}\n    a_1f_1(n) \\leq g_1(n) \\leq a_2f_1(n), \\forall n \\geq n_1 \\\\\n    b_1f_2(n) \\leq g_2(n) \\leq b_2f_2(n), \\forall n \\geq n_2 \\\\\n\\end{align*}\\]\nSetze \\(n_0 := max\\{n_1, n_2\\}, \\, c_1 := a_1b_1, \\, c_2 := a_2b_2\\). Dann gilt:\n\\[\nc_1(f_1f_2)(n) = a_1f_1(n)a_2f_2(n) \\leq (g_1g_2)(n) \\leq b_1f_1(n)b_2f_2(n) = c_2(f_1f_2)(n), \\quad \\forall n \\geq n_0\n\\]\nSomit \\(f_1f_2 \\in \\Theta(g_1g_2)\\).\n\nFalsch:\n\nBetrachte \\(f(n) := n\\) und \\(g(n) := 10n\\). Offensichtlicht gilt \\(f \\in \\Omega(g)\\) mit \\(c_0 := 1/10, n_0 := 1\\). Aber \\(2^{n} \\notin \\Omega(2^{10n})\\), da \\(2^n\\) langsamer als \\(2^{10n}\\) waechst. (Setze z.B. \\(2^n := x\\). Dann \\(2^{10n} = (2^{n})^{10} = x^{10}\\), und \\(x^{10}\\) ist offensichtlich schneller als \\(x\\))\n\nFalsch:\n\nSei \\(g(n) := 2^n\\). Dann \\(f(n) = g(2n) = 2^{2n} = (2^n)^2\\). \\((2^n)^2\\) ist offensichtlich schneller als \\(2^n\\)\n\nFalsch:\n\nSeien \\(f(n) := n^2, f_1(n) := n^3, f_2(n) := n\\). Es gilt:\n\\[\\begin{align*}\n    f\\in \\mathcal{O}(f_1) \\tag{$n^2 \\in \\mathcal{O}(n^3)$} \\\\\n    f_1\\in \\Omega(f_2) \\tag{$n^3 \\in \\Omega(n)$}\n\\end{align*}\\]\naber\n\\[\nf \\notin \\mathcal{O}(f_2) \\tag{$n^2 \\notin \\mathcal{O}(n)$}\n\\]\n\n\n\nEs gilt:\n\\[\\begin{align*}\n    \\lim_{n\\to\\infty}\\frac{f(n)}{f_2}(n) &=\n                \\lim_{n\\to\\infty}\\left(\\frac{f(n)}{f_1(n)}\\cdot\\frac{f_1(n)}{f_2(n)}\\right) \\\\\n                                         &=\n                \\lim_{n\\to\\infty}\\left(\\frac{f(n)}{f_1(n)}\\right) \\cdot\n                \\lim_{n\\to\\infty}\\left(\\frac{f_1(n)}{f_2(n)}\\right) \\\\\n                                         &= 0\\cdot c, \\text{fuer ein} c\n                                         \\tag{$f \\in \\mathcal{o}(f_1), f_1 \\in\\mathcal{O}(f_2)$} \\\\\n                                         &= 0 \\\\\n                                \\iff f \\in \\mathcal{o}(f_2) \\tag{Def $\\mathcal{o}$}\n\\end{align*}\\]\nWobei wir die alternativen Definitionen von \\(\\mathcal{o}(\\bullet)\\) und \\(\\mathcal{O}(\\bullet)\\) benutzt haben.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Blatt 01</span>"
+    ]
   }
 ]

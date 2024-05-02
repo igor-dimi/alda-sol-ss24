@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Igor Dimitrov">
-<meta name="dcterms.date" content="2024-04-22">
 
-<title>Algorithms &amp; Data Structures Solutions - SoSe 24</title>
+<title>Algorithms &amp; Data Structures Solutions - SoSe 24 - 1&nbsp; Blatt 01</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,23 +23,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./01/01.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../index.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -70,6 +68,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -82,7 +109,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01/01.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Blatt 01</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -97,7 +124,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Algorithms &amp; Data Structures Solutions - SoSe 24</a> 
+      <a href="../">Algorithms &amp; Data Structures Solutions - SoSe 24</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -109,13 +136,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01/01.html" class="sidebar-item-text sidebar-link">
+  <a href="../01/01.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Blatt 01</span></span></a>
   </div>
 </li>
@@ -129,7 +156,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
+  <li><a href="#aufgabe-2" id="toc-aufgabe-2" class="nav-link active" data-scroll-target="#aufgabe-2"><span class="header-section-number">1.1</span> Aufgabe 2</a></li>
+  <li><a href="#aufgabe-3" id="toc-aufgabe-3" class="nav-link" data-scroll-target="#aufgabe-3"><span class="header-section-number">1.2</span> Aufgabe 3</a></li>
   </ul>
 </nav>
     </div>
@@ -138,26 +166,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Algorithms &amp; Data Structures Solutions - SoSe 24</h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Blatt 01</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Igor Dimitrov </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">April 22, 2024</p>
-    </div>
-  </div>
   
     
   </div>
@@ -167,10 +183,115 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<p>This is a Quarto book.</p>
-<p>To learn more about Quarto books visit <a href="https://quarto.org/docs/books" class="uri">https://quarto.org/docs/books</a>.</p>
+<section id="aufgabe-2" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="aufgabe-2"><span class="header-section-number">1.1</span> Aufgabe 2</h2>
+<ol type="a">
+<li></li>
+</ol>
+<p><span class="math display">\[\begin{align*}
+    \log(n!) &amp;= \log(\prod_{i=1}^{n}i) \tag{Def $n!$} \\
+             &amp;= \sum_{i=1}^{n}\log(i) \tag{Eig $\log(\bullet)$} \\
+             &amp;\leq \sum_{i=1}^{n}\log(n) \tag{Eig $\log(\bullet)$} \\
+             &amp;= n\log(n)
+\end{align*}\]</span></p>
+<p>Waehle nun <span class="math inline">\(c_0 := 1\)</span> und <span class="math inline">\(n_0 := 1\)</span>. Es folgt somit:</p>
+<p><span class="math display">\[\begin{align*}
+     &amp;\log(n!) \leq 1\cdot n\log(n), \quad \forall n \geq 1 \\
+\iff &amp;\log(n!) \in \mathcal{O}(n\log(n)) \tag{Def $\mathcal{O}$}
+\end{align*}\]</span></p>
+<ol start="2" type="a">
+<li></li>
+</ol>
+<p>Zuerst bemerken wir die folgende Eigenschaft</p>
+<p><span class="math display">\[\begin{align*}
+    n\log(n) &amp;\leq c\log(n!) \\
+\iff       c &amp;\geq \frac{n\log(n)}{\log(n!)} \\
+             &amp;= \frac{n\log(n)}{\sum_{i=1}^{n}\log(i)}
+\end{align*}\]</span></p>
+<p>Wir definieren die Folge:</p>
+<p><span class="math display">\[\begin{align*}
+    c(n) &amp;:= \frac{n\log(n)}{\sum_{i=1}^{n}\log(i)} \\
+         &amp;= \frac{\overbrace{\log(n) + \dots + \log(n)}^\text{n-mal}}{\log(1) + \dots + \log(n)}
+\end{align*}\]</span></p>
+<p>Wir behaupten ohne Beweis, dass <span class="math inline">\(c(n)\)</span> eine monoton fallende Folge ist. D.h. es gilt:</p>
+<p><span class="math display">\[
+c(n) \leq c(m), \quad \forall n \geq m
+\]</span></p>
+<p>Setze nun <span class="math inline">\(n_0 := 10, c_0 := c(10) = \frac{10\log(10)}{\sum_{i = 1}^{10}\log(i)}\)</span>. Somit folgt:</p>
+<p><span class="math display">\[\begin{align*}
+    n\log(n) &amp;\leq \left(\frac{n\log(n)}{\sum_{i=1}^{n}\log(i)}\right)\log(n!) \\
+             &amp;= c(n)\log(n!) \\
+             &amp;\leq c_0\log(n!), \quad \forall n\geq n_0 = 10 \tag{$c(n)$ monoton fallend}
+\end{align*}\]</span></p>
+</section>
+<section id="aufgabe-3" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="aufgabe-3"><span class="header-section-number">1.2</span> Aufgabe 3</h2>
+<ol type="a">
+<li></li>
+</ol>
+<p>Da <span class="math inline">\(f_1 \in  \mathcal{O}(g_1)\)</span> und <span class="math inline">\(f_2 \in  \mathcal{O}(g_2)\)</span> existieren <span class="math inline">\(n_1, n_2, c_1, c_2\)</span> s.d:</p>
+<p><span class="math display">\[\begin{align*}
+f_1(n) \leq c_1 g_1(n), \quad \forall n\geq n_1 \\
+f_2(n) \leq c_2 g_2(n), \quad \forall n\geq n_2
+\end{align*}\]</span></p>
+<p>Setze <span class="math inline">\(c_0 := max\{c_1, c_2\}, n_0 := max\{n_1, n_2\}\)</span>. Dann gilt</p>
+<p><span class="math display">\[\begin{align*}
+    (f_1 + f_2)(n) &amp;= f_1(n) + f_2(n)  \\
+                   &amp;\leq c_1g_1(n) + c_2g_2(n), \quad \forall n \geq n_0
+                   \tag{$n \geq n_0 \Rightarrow n \geq n_1 \wedge n \geq n_2$} \\
+                   &amp;\leq c_0g_1(n) + c_0g_2(n), \quad \forall n \geq n_0 \\
+                   &amp;= c_0(g_1 + g_2)(n) \quad \forall n \geq n_0 \\
+    \iff   f_1 + f_2 &amp;\in \mathcal{O}(g_1 + g_2) \tag{Def $\mathcal{O}$}
+\end{align*}\]</span></p>
+<ol start="2" type="a">
+<li></li>
+</ol>
+<p>mit <span class="math inline">\(f_1 \in \Theta(g_1), f_2 \in \Theta(g_2)\)</span> existieren <span class="math inline">\(a_1, a_2, b_1, b_2, n_1, n_2\)</span>, s.d.:</p>
+<p><span class="math display">\[\begin{align*}
+    a_1f_1(n) \leq g_1(n) \leq a_2f_1(n), \forall n \geq n_1 \\
+    b_1f_2(n) \leq g_2(n) \leq b_2f_2(n), \forall n \geq n_2 \\
+\end{align*}\]</span></p>
+<p>Setze <span class="math inline">\(n_0 := max\{n_1, n_2\}, \, c_1 := a_1b_1, \, c_2 := a_2b_2\)</span>. Dann gilt:</p>
+<p><span class="math display">\[
+c_1(f_1f_2)(n) = a_1f_1(n)a_2f_2(n) \leq (g_1g_2)(n) \leq b_1f_1(n)b_2f_2(n) = c_2(f_1f_2)(n), \quad \forall n \geq n_0
+\]</span></p>
+<p>Somit <span class="math inline">\(f_1f_2 \in \Theta(g_1g_2)\)</span>.</p>
+<ol start="3" type="a">
+<li><strong>Falsch</strong>:</li>
+</ol>
+<p>Betrachte <span class="math inline">\(f(n) := n\)</span> und <span class="math inline">\(g(n) := 10n\)</span>. Offensichtlicht gilt <span class="math inline">\(f \in \Omega(g)\)</span> mit <span class="math inline">\(c_0 := 1/10, n_0 := 1\)</span>. Aber <span class="math inline">\(2^{n} \notin \Omega(2^{10n})\)</span>, da <span class="math inline">\(2^n\)</span> langsamer als <span class="math inline">\(2^{10n}\)</span> waechst. (Setze z.B. <span class="math inline">\(2^n := x\)</span>. Dann <span class="math inline">\(2^{10n} = (2^{n})^{10} = x^{10}\)</span>, und <span class="math inline">\(x^{10}\)</span> ist offensichtlich schneller als <span class="math inline">\(x\)</span>)</p>
+<ol start="4" type="a">
+<li><strong>Falsch</strong>:</li>
+</ol>
+<p>Sei <span class="math inline">\(g(n) := 2^n\)</span>. Dann <span class="math inline">\(f(n) = g(2n) = 2^{2n} = (2^n)^2\)</span>. <span class="math inline">\((2^n)^2\)</span> ist offensichtlich schneller als <span class="math inline">\(2^n\)</span></p>
+<ol start="5" type="a">
+<li><strong>Falsch</strong>:</li>
+</ol>
+<p>Seien <span class="math inline">\(f(n) := n^2, f_1(n) := n^3, f_2(n) := n\)</span>. Es gilt:</p>
+<p><span class="math display">\[\begin{align*}
+    f\in \mathcal{O}(f_1) \tag{$n^2 \in \mathcal{O}(n^3)$} \\
+    f_1\in \Omega(f_2) \tag{$n^3 \in \Omega(n)$}
+\end{align*}\]</span></p>
+<p>aber</p>
+<p><span class="math display">\[
+f \notin \mathcal{O}(f_2) \tag{$n^2 \notin \mathcal{O}(n)$}
+\]</span></p>
+<ol start="6" type="a">
+<li></li>
+</ol>
+<p>Es gilt:</p>
+<p><span class="math display">\[\begin{align*}
+    \lim_{n\to\infty}\frac{f(n)}{f_2}(n) &amp;=
+                \lim_{n\to\infty}\left(\frac{f(n)}{f_1(n)}\cdot\frac{f_1(n)}{f_2(n)}\right) \\
+                                         &amp;=
+                \lim_{n\to\infty}\left(\frac{f(n)}{f_1(n)}\right) \cdot
+                \lim_{n\to\infty}\left(\frac{f_1(n)}{f_2(n)}\right) \\
+                                         &amp;= 0\cdot c, \text{fuer ein} c
+                                         \tag{$f \in \mathcal{o}(f_1), f_1 \in\mathcal{O}(f_2)$} \\
+                                         &amp;= 0 \\
+                                \iff f \in \mathcal{o}(f_2) \tag{Def $\mathcal{o}$}
+\end{align*}\]</span></p>
+<p>Wobei wir die alternativen Definitionen von <span class="math inline">\(\mathcal{o}(\bullet)\)</span> und <span class="math inline">\(\mathcal{O}(\bullet)\)</span> benutzt haben.</p>
 
 
 </section>
@@ -587,11 +708,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../index.html" class="pagination-link" aria-label="Preface">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01/01.html" class="pagination-link" aria-label="Blatt 01">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Blatt 01</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
