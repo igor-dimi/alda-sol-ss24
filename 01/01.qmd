@@ -53,7 +53,7 @@ Setze nun $n_0 := 10, c_0 := c(10) = \frac{10\log(10)}{\sum_{i = 1}^{10}\log(i)}
 
 ## Aufgabe 3
 
-a) 
+### a)
 
 Da $f_1 \in  \mathcal{O}(g_1)$ und $f_2 \in  \mathcal{O}(g_2)$ existieren $n_1, n_2, c_1, c_2$ s.d:
 
@@ -73,7 +73,7 @@ Setze $c_0 := max\{c_1, c_2\}, n_0 := max\{n_1, n_2\}$. Dann gilt
     \iff   f_1 + f_2 &\in \mathcal{O}(g_1 + g_2) \tag{Def $\mathcal{O}$}
 \end{align*}
 
-b)
+### b)
 
 mit $f_1 \in \Theta(g_1), f_2 \in \Theta(g_2)$ existieren $a_1, a_2, b_1, b_2, n_1, n_2$, s.d.:
 
@@ -85,22 +85,22 @@ mit $f_1 \in \Theta(g_1), f_2 \in \Theta(g_2)$ existieren $a_1, a_2, b_1, b_2, n
 Setze $n_0 := max\{n_1, n_2\}, \, c_1 := a_1b_1, \, c_2 := a_2b_2$. Dann gilt:
 
 $$
-c_1(f_1f_2)(n) = a_1f_1(n)a_2f_2(n) \leq (g_1g_2)(n) \leq b_1f_1(n)b_2f_2(n) = c_2(f_1f_2)(n), \quad \forall n \geq n_0
+c_1(f_1f_2)(n) = a_1f_1(n)b_1f_2(n) \leq (g_1g_2)(n) \leq a_2f_1(n)b_2f_2(n) = c_2(f_1f_2)(n), \quad \forall n \geq n_0
 $$
 
 Somit $f_1f_2 \in \Theta(g_1g_2)$. 
 
-c) **Falsch**:
+### c) **Falsch**:
 
 Betrachte $f(n) := n$ und $g(n) := 10n$. Offensichtlicht gilt $f \in \Omega(g)$ mit $c_0 := 1/10, n_0 := 1$.
 Aber $2^{n} \notin \Omega(2^{10n})$, da $2^n$ langsamer als $2^{10n}$ waechst. (Setze z.B. $2^n := x$. 
 Dann $2^{10n} = (2^{n})^{10} = x^{10}$, und $x^{10}$ ist offensichtlich schneller als $x$)
 
-d) **Falsch**:
+### d) **Falsch**:
 
 Sei $g(n) := 2^n$. Dann $f(n) = g(2n) = 2^{2n} = (2^n)^2$. $(2^n)^2$ ist offensichtlich schneller als $2^n$
 
-e) **Falsch**:
+### e) **Falsch**:
 
 Seien $f(n) := n^2, f_1(n) := n^3, f_2(n) := n$. Es gilt:
 
@@ -115,12 +115,12 @@ $$
 f \notin \mathcal{O}(f_2) \tag{$n^2 \notin \mathcal{O}(n)$}
 $$
 
-f)
+### f)
 
 Es gilt:
 
 \begin{align*}
-    \lim_{n\to\infty}\frac{f(n)}{f_2}(n) &= 
+    \lim_{n\to\infty}\frac{f(n)}{f_2(n)} &= 
                 \lim_{n\to\infty}\left(\frac{f(n)}{f_1(n)}\cdot\frac{f_1(n)}{f_2(n)}\right) \\
                                          &= 
                 \lim_{n\to\infty}\left(\frac{f(n)}{f_1(n)}\right) \cdot 
@@ -132,3 +132,128 @@ Es gilt:
 \end{align*}
 
 Wobei wir die alternativen Definitionen von $\mathcal{o}(\bullet)$ und $\mathcal{O}(\bullet)$ benutzt haben.
+
+
+## Auafgabe 4 
+
+### a)
+
+
+$\mathcal{O}(n^2\log(n))$:
+
+```default
+read(n) //input
+for i := 1 to n :
+    for j := 1 to n:
+        k := 1
+        // O(log(n))
+        while (k < n) : 
+            k := 2 * k
+```
+
+
+### b)
+
+$\mathcal{O}((log(n))^2)$:
+
+```default
+read(n) //input
+i := 1
+while (i < n) :
+    j := 1
+    while (j < n) :
+        j := 2 * j 
+    i := 2 * i
+```
+
+### c) 
+
+Wir 'simulieren' Exponentiation durch einzelne Additionsoperationen.
+Somit ist $n^n$ in $n^n$ Additionen berechnet - Python Implementierung:
+
+```{python}
+def add(n, m) :
+    if m == 0 : return n
+    return 1 + add(n, m - 1)
+
+def mult(n, m) :
+    if m == 0 : return 0
+    return add(n, mult(n, m - 1))
+
+def exp(n, m) :
+    if m == 0 : return 1
+    return mult(n, exp(n, m - 1))
+
+def f(n) : return exp(n, n)
+```
+
+Wir testen diese Funktion fuer einige Werte:
+
+```{python}
+for i in range(5) :
+    print(f(i))
+```
+
+Alternativ betrachte folgende rekursive Funktionsdefinition:
+
+```default
+function recursiveLoops(n : Nat, m : Nat) :
+    if m > 0 then :
+        for i = 1 ... n do :
+            recursiveLoops(n, m - 1)
+```
+
+Dann erzeugt der Aufruf `recursiveLoops(n, n)`eine Anzahl von $\mathcal{O}(n^n)$ rekursiven Aufrufe.
+
+
+### d)
+
+$\Theta{2^n}$ - Wir 'simulieren' binaeres Zaehlen:
+
+```default
+read(n)
+base := 0
+count := 0
+k := 1 
+// invariant: k == 2^b, count < k
+while (base < n) :
+    k := 2 * k
+    base := base + 1
+    while (count < k) :
+        count := count + 1
+    // post-condition: count == k
+//post-condition b == n => count == 2^n
+```
+
+Python Implementierung:
+```{python}
+def binary_count(n) :
+    base = count = 0
+    k = 1
+    while (base < n) :
+        k = 2 * k
+        base = base + 1
+        while (count < k) :
+            count = count + 1
+    return count
+```
+
+Wir testen diese Funktion fuer einige Werte. Das Ergebniss
+ist die Anzahl der Schritte fuer die jeweilige Eingabe:
+
+```{python}
+for i in range(11) :
+    print(binary_count(i))
+```
+
+Alternativ:
+
+```default
+function f(n) :
+    if n == 0 : return 1
+    return f(n - 1) + f(n - 1)
+```
+
+Diese rekursive Funktion ruft sich selbst zweimal fuer jeden Wert 
+von $n$ auf, was zu einer Laufzeit von $2^n$ fuehrt. 
+

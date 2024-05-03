@@ -9,6 +9,8 @@ book:
     - index.qmd
     - 01/01.qmd
 
+  downloads: pdf
+
 bibliography: references.bib
 
 format:
