@@ -1,0 +1,25 @@
+---
+title: "Blatt 2"
+---
+
+## Aufgabe 1
+
+### 2
+
+Eine nicht-konstante Laufzeit ensteht, falls uebergebene arrays auf den Stack des Funktionsaufrufs
+kopiert werden muessen. 
+
+Falls eine gegebene Implementierung der Programmiersprache folgende zwei Eigenschaften aufweist, 
+kann dies vermieden werden:
+
+* Die Groesse eines Arrays ist immer als zusaetzliche Information beinhaltet.
+* Die Funktionsaufrufe werden per-default als **call by reference** realisiert statt 
+  **call by value**. 
+
+So wuerde fuer einen existierenden Array $A : \text{Array} [0 .. n - 1] \text{ of } \mathbb{N}$
+der allgeimeiner Ausdruck $A[l..k]$ einen Array liefern, dessen Anfang-position im Speicher und Groesse durch
+Pointerarithmetik, bzw durch den Ausdruck $k - l + 1$ bestimmt werden koennen. 
+Das sind nur zwei Grundoperationen, und somit $\mathcal{O}(1)$
+
+Da die Uebergabe der Arrays per Referenz stattfindet, wuerden die Aufrufe `sum(A[0..m-1])` und `sum(A[m..n-1])`
+nur konstante Zeit bei der Initialisuerungen auf ihren Function call-stacks benoetigen. 
