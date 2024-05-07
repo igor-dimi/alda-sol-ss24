@@ -4,6 +4,15 @@ title: "Blatt 2"
 
 ## Aufgabe 1
 
+### 1
+
+Rekursionsbaum des Aufrufs `sum(<1, 2, 3, 4, 5, 6, 7, 8>)`
+
+![Rekursionsbaum](./imgs/a1-1-baum.png){#fig-baum}
+
+Die Nummerierung der Knoten entspricht der Berechnungsreihenfolge. 
+
+
 ### 2
 
 Eine nicht-konstante Laufzeit ensteht, falls uebergebene arrays auf den Stack des Funktionsaufrufs
@@ -23,3 +32,8 @@ Das sind nur zwei Grundoperationen, und somit $\mathcal{O}(1)$
 
 Da die Uebergabe der Arrays per Referenz stattfindet, wuerden die Aufrufe `sum(A[0..m-1])` und `sum(A[m..n-1])`
 nur konstante Zeit bei der Initialisuerungen auf ihren Function call-stacks benoetigen. 
+
+### 3 
+
+a) Die Laufzeit erfuellt die Rekurrenzgleichung:
+
