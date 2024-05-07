@@ -37,3 +37,10 @@ nur konstante Zeit bei der Initialisuerungen auf ihren Function call-stacks beno
 
 a) Die Laufzeit erfuellt die Rekurrenzgleichung:
 
+\begin{align*}
+    T(1) &= 2\\
+    T(n) &= 2 + 2\cdot T(\frac{n}{2}) \tag{fuer $n = 2^k > 1$}
+\end{align*}
+
+Somit folgt $T(n) = n + 1
+
