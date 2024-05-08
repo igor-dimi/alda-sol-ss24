@@ -8,6 +8,7 @@ book:
   chapters:
     - index.qmd
     - 01/01.qmd
+    - 02/02.qmd
 
   downloads: pdf
 
