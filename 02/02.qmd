@@ -18,7 +18,7 @@ Die Nummerierung der Knoten entspricht der Berechnungsreihenfolge.
 Eine nicht-konstante Laufzeit ensteht, falls uebergebene arrays auf den Stack des Funktionsaufrufs
 kopiert werden muessen. 
 
-Falls eine gegebene Implementierung der Programmiersprache folgende zwei Eigenschaften aufweist, 
+Wenn eine gegebene Implementierung der Programmiersprache folgende zwei Eigenschaften aufweist, 
 kann dies vermieden werden:
 
 * Die Groesse eines Arrays ist immer als zusaetzliche Information beinhaltet.
@@ -38,9 +38,78 @@ nur konstante Zeit bei der Initialisuerungen auf ihren Function call-stacks beno
 a) Die Laufzeit erfuellt die Rekurrenzgleichung:
 
 \begin{align*}
-    T(1) &= 2\\
-    T(n) &= 2 + 2\cdot T(\frac{n}{2}) \tag{fuer $n = 2^k > 1$}
+    T(1) &= 1\\
+    T(n) &= 1 + 2\cdot T(\frac{n}{2}) \tag{fuer $n = 2^k > 1$}
 \end{align*}
 
-Somit folgt $T(n) = n + 1
+b) Da, die Eingabe bei jedem Aufruf halbiert wird ist die Tiefe
+des Rekurrenzbaums (@fig-baum) $k = \log_2(n)$. Dieser Baum ist 
+vollstaendig binaer, deshalb enthaelt jede Tiefe $i$ genau $2^i$
+Knoten, fuer $i=0\dots k$. Somit betreagt die Gesamtzahl der
+Knoten:
+
+\begin{align*}
+    N &= \sum_{i=0}^{\log_2(n)}2^i \\
+      &= 2^{\log_2(n) + 1} - 1 \tag{Geom Reihe} \\
+      &= 2n - 1
+\end{align*}
+
+Bei jedem Knoten wird eine konstante Anzahl von Additions- &
+Zuweisungsoperationen durchgefuehrt, und das Ergebnis
+zur aufrufenden Funktion zurueckgegeben. Somit ist die Laufzeit
+proportional zur Anzahl der Knoten, die wir in der vorangehenden
+Diskussion berechnet haben, d.h. $T(n) = c_1n + c_2$. Dann
+gilt offensichtlich $T(n) = \Theta(n)$
+
+## Aufgabe 2 
+
+### a)
+
+\begin{align*}
+    & a = 1, \\
+    &c = \tilde{c}, \\
+    &d = 1 < 2 = b \\
+    \Rightarrow &T(n) \in \Theta(n) \tag{Fall $d < b$ des MT}
+\end{align*}
+
+### b)
+
+\begin{align*}
+    & a = 1, \\
+    &c = 4, \\
+    &d = 9 > 3 = b \\
+    \Rightarrow &T(n) \in \Theta(n^{\log_3(9)}) = \Theta(n^2) \tag{Fall $d > b$ des MT}
+\end{align*}
+
+### c)
+
+Der Ausdruck $C(n/4) + n + 6$ kann asymptotisch 
+als $C(n/4) + n$ kann vereinfacht werden, da Addition mit konstante
+vernachlaessigt werden kann. Somit:
+
+\begin{align*}
+    & a = 1, \\
+    &c = 1, \\
+    &d = 1 < 4 = b \\
+    \Rightarrow &T(n) \in \Theta(n) \tag{Fall $d < b$ des MT}
+\end{align*}
+
+### d)
+
+In c) wurde gezeigt, dass $C(n) \in \Theta(n)$. Somit kann
+$C(n)$ fuer asymptotische Zwecke durch $c\cdot n$ erzetzt werden.
+Dann gilt:
+
+$$
+T(n) = c\cdot n + 4D(\frac{n}{4})
+$$
+
+und somit:
+
+\begin{align*}
+    &a = 1, \\
+    &d = 4 = 4 = b \\
+    \Rightarrow &T(n) \in \Theta(n\log n) \tag{Fall $d = b$ des MT}
+\end{align*}
+
 
