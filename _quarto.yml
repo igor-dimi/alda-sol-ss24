@@ -11,6 +11,7 @@ book:
     - 02/02.qmd
 
   downloads: pdf
+number-depth: 1 
 
 bibliography: references.bib
 

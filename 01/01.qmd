@@ -1,5 +1,5 @@
 ---
-title: Blatt 01
+title: Blatt 1
 ---
 
 ## Aufgabe 2
