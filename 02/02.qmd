@@ -164,7 +164,7 @@ Anzahl von Grundoperationen durchgefuehrt $\Rightarrow \mathcal{O}(n)$.
 und inkrementiere zu den inneren. Siehe das Bild: 
 
 
-![Reverse Array](./imgs/revrese-array.png)
+![Reverse Array](./imgs/revrese-array.png){width="50%"}
 
 a) Pseudocode: 
 
