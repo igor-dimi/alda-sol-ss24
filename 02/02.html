@@ -413,7 +413,7 @@ T(n) = c\cdot n + 4D(\frac{n}{4})
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        i := i + 1</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    //post-loop: i == ceiling(n/2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Python Beispiel:</p>
-<div id="36cf5fc3" class="cell" data-execution_count="1">
+<div id="ab5bce6d" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> reverse(X) :</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    i <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(X)</span>
@@ -459,9 +459,9 @@ T(n) = c\cdot n + 4D(\frac{n}{4})
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    assert(not X.is_empty())</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    // let &lt;e1,...,e_n&gt; be the initial contents of the list </span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    // i.e. initially X == &lt;e1,...,e_n&gt;</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    ip := X.first() : *Item&lt;T&gt;</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    ip_next := ip-&gt;next : *Item&lt;T&gt;</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    ip-&gt;next := &amp;dummy //first element reversed</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    ip := X.first() : *Item&lt;T&gt;      //*ip == e1</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    ip_next := ip-&gt;next : *Item&lt;T&gt;  //*ip_next == e2</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    ip-&gt;next := &amp;dummy          //first element reversed</span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    //invariant: </span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    // (*ip == e_k) =&gt; </span>
@@ -473,7 +473,7 @@ T(n) = c\cdot n + 4D(\frac{n}{4})
 <span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>        ip_next-&gt;next := ip</span>
 <span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>        ip := ip_next</span>
 <span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>        ip_next := ip_next_next</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    //post-loop: *ip == e_n somit X == &lt;reverse(e1,...,e_n)&gt;</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    //post-loop: *ip == e_n</span>
 <span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    // take care of dummy's next pointer</span>
 <span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    X.first() := ip </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
