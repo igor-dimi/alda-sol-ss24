@@ -4,7 +4,7 @@ title: "Blatt 2"
 
 ## Aufgabe 1
 
-### 1
+### 1 Rekursionsbaum
 
 Rekursionsbaum des Aufrufs `sum(<1, 2, 3, 4, 5, 6, 7, 8>)`
 
@@ -13,7 +13,7 @@ Rekursionsbaum des Aufrufs `sum(<1, 2, 3, 4, 5, 6, 7, 8>)`
 Die Nummerierung der Knoten entspricht der Berechnungsreihenfolge. 
 
 
-### 2
+### 2 Array Zerlegung
 
 Eine nicht-konstante Laufzeit ensteht, falls uebergebene arrays auf den Stack des Funktionsaufrufs
 kopiert werden muessen. 
@@ -33,7 +33,7 @@ Das sind nur zwei Grundoperationen, und somit $\mathcal{O}(1)$
 Da die Uebergabe der Arrays per Referenz stattfindet, wuerden die Aufrufe `sum(A[0..m-1])` und `sum(A[m..n-1])`
 nur konstante Zeit bei der Initialisuerungen auf ihren Function call-stacks benoetigen. 
 
-### 3 
+### 3 Laufzeit
 
 a) Die Laufzeit erfuellt die Rekurrenzgleichung:
 
@@ -61,7 +61,7 @@ proportional zur Anzahl der Knoten, die wir in der vorangehenden
 Diskussion berechnet haben, d.h. $T(n) = c_1n + c_2$. Dann
 gilt offensichtlich $T(n) = \Theta(n)$
 
-### 4
+### 4 Laufzeit Parallel
 
 Da, der zweite rekursive Aufruf bereits berechnet ist zum Zeitpunkt
 der erste Fertig ist, muss sein Zeitaufwand nicht zuesaetzlich addiert werden. 
@@ -226,7 +226,7 @@ d) Der Algorithmus besteht aus einer `while`-schleife mit
 $n/2$ iterationen $\Rightarrow \Theta(n)$.
 
 
-### 3
+### 3 Simply Linked List
 
 **Idee**: Gehe die Liste durch und drehe die Pointer fuer jedes
 Listenelement um. Siehe das Bild:
@@ -264,4 +264,4 @@ b) Siehe Kommentare im Pseudocode
 c) Nur Pointer werden ueberschrieben $\Rightarrow$ keine extra Speicherbelegung.
 d) Sequentielle Bearbeitung der Listenelemente $\Rightarrow \Theta(n)$ 
 
-### 4
+### 4 Fast Reverse
