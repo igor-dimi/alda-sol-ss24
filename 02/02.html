@@ -204,6 +204,7 @@ window.Quarto = {
   <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">1</a></li>
   <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">2</a></li>
   <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">3</a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">4</a></li>
   </ul></li>
   <li><a href="#aufgabe-2" id="toc-aufgabe-2" class="nav-link" data-scroll-target="#aufgabe-2">Aufgabe 2</a>
   <ul class="collapse">
@@ -216,8 +217,8 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#doubly-linked-list" id="toc-doubly-linked-list" class="nav-link" data-scroll-target="#doubly-linked-list">1 Doubly Linked List</a></li>
   <li><a href="#array" id="toc-array" class="nav-link" data-scroll-target="#array">2 Array</a></li>
-  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">3</a></li>
-  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4">4</a></li>
+  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4">3</a></li>
+  <li><a href="#section-5" id="toc-section-5" class="nav-link" data-scroll-target="#section-5">4</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -291,6 +292,15 @@ Figure&nbsp;2.1: Rekursionsbaum
 \end{align*}\]</span></p>
 <p>Bei jedem Knoten wird eine konstante Anzahl von Additions- &amp; Zuweisungsoperationen durchgefuehrt, und das Ergebnis zur aufrufenden Funktion zurueckgegeben. Somit ist die Laufzeit proportional zur Anzahl der Knoten, die wir in der vorangehenden Diskussion berechnet haben, d.h. <span class="math inline">\(T(n) = c_1n + c_2\)</span>. Dann gilt offensichtlich <span class="math inline">\(T(n) = \Theta(n)\)</span></p>
 </section>
+<section id="section-3" class="level3">
+<h3 class="anchored" data-anchor-id="section-3">4</h3>
+<p>Da, der zweite rekursive Aufruf bereits berechnet ist zum Zeitpunkt der erste Fertig ist, muss sein Zeitaufwand nicht zuesaetzlich addiert werden. Somit erfuellt fuer diesen Fall die Laufzeit folgende Rekurrenzgleichung:</p>
+<p><span class="math display">\[\begin{align*}
+    T(1) &amp;= 1\\
+    T(n) &amp;= 1 + T(\frac{n}{2}) \tag{fuer $n = 2^k &gt; 1$}
+\end{align*}\]</span></p>
+<p>Es ist leicht zu sehen, dass <span class="math inline">\(\log_2(n)\)</span> diese Rekurrenzgleichung erfuellt. (Formaler Beweis durch Induktion). Dann <span class="math inline">\(T(n) = \mathcal{O}(\log(n))\)</span></p>
+</section>
 </section>
 <section id="aufgabe-2" class="level2">
 <h2 class="anchored" data-anchor-id="aufgabe-2">Aufgabe 2</h2>
@@ -345,34 +355,35 @@ T(n) = c\cdot n + 4D(\frac{n}{4})
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="./imgs/reverse-ddlist.png" class="img-fluid figure-img"></p>
-<figcaption>Reverse(X)</figcaption>
+<figcaption>Reverse DLList</figcaption>
 </figure>
 </div>
 <ol type="a">
 <li>Pseudocode implementierung:</li>
 </ol>
 <div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>procedure reverse(X : List&lt;T&gt;)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    // let e1 := initial first element</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    // let e_n := initial last element</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    // define ip initially to point to e1</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    // exchange last and first, e1 is now last</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    ip := X.first() : *Item&lt;T&gt;</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    X.first() := X.last()</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    X.last() := ip</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    // invariant: reversed from e1 to *ip</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    while (ip-&gt;next != &amp;dummy)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        //exchange next and prev of the item pointed by ip</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        ip_next := ip-&gt;next : *Item&lt;T&gt;</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        ip-&gt;next := ip-&gt;prev</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        ip-&gt;prev := ip_next</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        ip = ip_next //increment to next item</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    //*ip == e_n </span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    // take care of e_n's pointers:</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    ip.next = ip.prev</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    ip.prev = &amp;dummy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    assert(not X.is_empty())</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    // let e1 := initial first element</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    // let e_n := initial last element</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    // define ip initially to point to e1</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    // exchange last and first, e1 is now last</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    ip := X.first() : *Item&lt;T&gt;</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    X.first() := X.last()</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    X.last() := ip</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    // invariant: reversed from e1 to *ip</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    while (ip-&gt;next != &amp;dummy)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        //exchange next and prev of the item pointed by ip</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        ip_next := ip-&gt;next : *Item&lt;T&gt;</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        ip-&gt;next := ip-&gt;prev</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        ip-&gt;prev := ip_next</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        ip = ip_next //increment to next item</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    //post-loop: *ip == e_n </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    // take care of e_n's pointers:</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    ip.next = ip.prev</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    ip.prev = &amp;dummy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="2" type="a">
 <li>Siehe Kommentare fuer den Beweis der Korrektheit</li>
 <li>Der Algorithmus benoetigt keine zusaetzliche Worte, da es keine neue Listenelemente abgelegt oder existierende Elemente kopiert werden. Es werden einfach nur Pointer ausgetauscht.</li>
@@ -384,7 +395,7 @@ T(n) = c\cdot n + 4D(\frac{n}{4})
 <p><strong>Idee</strong>: Tausche die ‘aussersten’ noch nicht ausgetauschten Elementen aus, und inkrementiere zu den inneren. Siehe das Bild:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./imgs/revrese-array.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<p><img src="./imgs/revrese-array.png" class="img-fluid figure-img" style="width:60.0%"></p>
 <figcaption>Reverse Array</figcaption>
 </figure>
 </div>
@@ -400,9 +411,9 @@ T(n) = c\cdot n + 4D(\frac{n}{4})
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        X[i] := X[(n-1) - i]</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        X[(n-1) - i] := temp</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        i := i + 1</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    // i == ceiling(n/2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    //post-loop: i == ceiling(n/2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Python Beispiel:</p>
-<div id="2246e1c6" class="cell" data-execution_count="1">
+<div id="3ada635c" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> reverse(X) :</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    i <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(X)</span>
@@ -432,11 +443,48 @@ T(n) = c\cdot n + 4D(\frac{n}{4})
 <li>Der Algorithmus besteht aus einer <code>while</code>-schleife mit <span class="math inline">\(n/2\)</span> iterationen <span class="math inline">\(\Rightarrow \Theta(n)\)</span>.</li>
 </ol>
 </section>
-<section id="section-3" class="level3">
-<h3 class="anchored" data-anchor-id="section-3">3</h3>
-</section>
 <section id="section-4" class="level3">
-<h3 class="anchored" data-anchor-id="section-4">4</h3>
+<h3 class="anchored" data-anchor-id="section-4">3</h3>
+<p><strong>Idee</strong>: Gehe die Liste durch und drehe die Pointer fuer jedes Listenelement um. Siehe das Bild:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./imgs/reverse-slist.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption>Reverse SList</figcaption>
+</figure>
+</div>
+<ol type="a">
+<li>Pseudocode:</li>
+</ol>
+<div class="sourceCode" id="cb5"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>reverse(X : SList&lt;T&gt;)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    assert(not X.is_empty())</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    // let &lt;e1,...,e_n&gt; be the initial contents of the list </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    // i.e. initially X == &lt;e1,...,e_n&gt;</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    ip := X.first() : *Item&lt;T&gt;</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    ip_next := ip-&gt;next : *Item&lt;T&gt;</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    ip-&gt;next := &amp;dummy //first element reversed</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    //invariant: </span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    // (*ip == e_k) =&gt; </span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    // (X == &lt;reverse(e1,...,e_k),e_(k+1), ..., e_n&gt; </span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    //   &amp;&amp; </span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    // ip_next == e_(k+1))</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    while (ip_next != &amp;dummy)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>        ip_next_next := ip_next-&gt;next : *Item&lt;T&gt;</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>        ip_next-&gt;next := ip</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>        ip := ip_next</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>        ip_next := ip_next_next</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    //post-loop: ip == e_n somit X == &lt;reverse(e1,...,e_n)&gt;</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    // take care of dummy's pointer</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    X.first() := ip </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="a">
+<li>Siehe Kommentare im Pseudocode</li>
+<li>Nur Pointer werden ueberschrieben <span class="math inline">\(\Rightarrow\)</span> keine extra Speicherbelegung.</li>
+<li>Sequentielle Bearbeitung der Listenelemente <span class="math inline">\(\Rightarrow \Theta(n)\)</span></li>
+</ol>
+</section>
+<section id="section-5" class="level3">
+<h3 class="anchored" data-anchor-id="section-5">4</h3>
 
 
 </section>
