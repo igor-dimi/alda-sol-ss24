@@ -114,3 +114,95 @@ und somit:
 
 
 ## Aufgabe 3
+
+### 1 Doubly Linked List
+
+Wir gehen von einer Implementierung aus, die das **Dummy-element** verwendent, wie in der VL beschrieben.
+
+**Idee**: Tausche fuer jedes List-Item die Pointer `next` und `prev` aus. Illustration:
+
+![Reverse(X)](./imgs/reverse-ddlist.png)
+
+a) Pseudocode implementierung:
+
+```default
+procedure reverse(X : List<T>)
+    // let e1 := initial first element
+    // let e_n := initial last element
+
+    // define ip initially to point to e1
+    // exchange last and first, e1 is now last
+    ip := X.first() : *Item<T>
+    X.first() := X.last()
+    X.last() := ip
+
+    // invariant: reversed from e1 to *ip
+    while (ip->next != &dummy)
+        //exchange next and prev of the item pointed by ip
+        ip_next := ip->next : *Item<T>
+        ip->next := ip->prev
+        ip->prev := ip_next
+        ip = ip_next //increment to next item
+    //*ip == e_n 
+
+    // take care of e_n's pointers:
+    ip.next = ip.prev
+    ip.prev = &dummy
+```
+
+b) Siehe Kommentare fuer den Beweis der Korrektheit
+c) Der Algorithmus benoetigt keine zusaetzliche Worte, 
+da es keine neue Listenelemente abgelegt oder existierende Elemente kopiert werden. 
+Es werden einfach nur Pointer ausgetauscht.
+d) Die Listenelemente werden sequentiell durchgelaufen und fuer jedes Element werden eine konstante
+Anzahl von Grundoperationen durchgefuehrt $\Rightarrow \mathcal{O}(n)$.
+
+
+### 2 Array
+
+**Idee**: Tausche die 'aussersten' noch nicht ausgetauschten Elementen aus, 
+und inkrementiere zu den inneren. Siehe das Bild: 
+
+
+![Reverse Array](./imgs/revrese-array.png)
+
+a) Pseudocode: 
+
+```default
+procedure reverse(X: Array[0..n-1] of Nat)
+    i := 0 : Nat
+    // invariant: the X[0..i] and X[(n-1) - i .. n-1]
+    // portions of X are reversed
+    while (i < n/2)
+        temp := X[i] : Nat
+        X[i] := X[(n-1) - i]
+        X[(n-1) - i] := temp
+        i := i + 1
+    // i == ceiling(n/2)
+```
+
+Python Beispiel:
+```{python}
+X = [1, 2, 3, 4, 5]
+i = 0
+n = len(X)
+while (i < n/2) :
+    temp = X[i]
+    X[i] = X[(n-1) - i]
+    X[(n-1) - i] = temp
+    i = i + 1
+print(X)
+```
+
+b) Siehe die Kommentare im Pseudocode fuer den Beweis
+der Korrektheit
+c) Der Algorithmus verwendet keine neue Worte, da die 
+Eintrage des Arrays "in-place" ausgetauscht werden. D.h.
+der vorhandene Array wird ueberschrieben
+d) Der Algorithmus besteht aus einer `while`-schleife mit
+$n/2$ iterationen $\Rightarrow \Theta(n)$.
+
+
+### 3
+
+### 4
