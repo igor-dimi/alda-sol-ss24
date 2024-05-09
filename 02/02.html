@@ -413,7 +413,7 @@ T(n) = c\cdot n + 4D(\frac{n}{4})
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        i := i + 1</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    //post-loop: i == ceiling(n/2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Python Beispiel:</p>
-<div id="ab5bce6d" class="cell" data-execution_count="1">
+<div id="159152dd" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> reverse(X) :</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    i <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(X)</span>
@@ -461,13 +461,13 @@ T(n) = c\cdot n + 4D(\frac{n}{4})
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    // i.e. initially X == &lt;e1,...,e_n&gt;</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    ip := X.first() : *Item&lt;T&gt;      //*ip == e1</span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    ip_next := ip-&gt;next : *Item&lt;T&gt;  //*ip_next == e2</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    ip-&gt;next := &amp;dummy          //first element reversed</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    ip-&gt;next := &amp;dummy          //e1 is now last</span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    //invariant: </span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    // (*ip == e_k) =&gt; </span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    // (X == &lt;reverse(e1,...,e_k),e_(k+1), ..., e_n&gt; </span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    // *ip_next == e_(k+1))</span>
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    //   &amp;&amp; </span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    // ip_next == e_(k+1))</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    //reversed from e1 to e_k, i.e. X == &lt;..TBD..,e_k, ..., e1&gt;</span>
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    while (ip_next != &amp;dummy)</span>
 <span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>        ip_next_next := ip_next-&gt;next : *Item&lt;T&gt;</span>
 <span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>        ip_next-&gt;next := ip</span>
