@@ -240,9 +240,9 @@ reverse(X : SList<T>)
     assert(not X.is_empty())
     // let <e1,...,e_n> be the initial contents of the list 
     // i.e. initially X == <e1,...,e_n>
-    ip := X.first() : *Item<T>
-    ip_next := ip->next : *Item<T>
-    ip->next := &dummy //first element reversed
+    ip := X.first() : *Item<T>      //*ip == e1
+    ip_next := ip->next : *Item<T>  //*ip_next == e2
+    ip->next := &dummy          //first element reversed
 
     //invariant: 
     // (*ip == e_k) => 
@@ -254,7 +254,7 @@ reverse(X : SList<T>)
         ip_next->next := ip
         ip := ip_next
         ip_next := ip_next_next
-    //post-loop: *ip == e_n somit X == <reverse(e1,...,e_n)>
+    //post-loop: *ip == e_n
     
     // take care of dummy's next pointer
     X.first() := ip 
