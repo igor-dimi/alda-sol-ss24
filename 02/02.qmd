@@ -183,15 +183,23 @@ procedure reverse(X: Array[0..n-1] of Nat)
 
 Python Beispiel:
 ```{python}
-X = [1, 2, 3, 4, 5]
-i = 0
-n = len(X)
-while (i < n/2) :
-    temp = X[i]
-    X[i] = X[(n-1) - i]
-    X[(n-1) - i] = temp
-    i = i + 1
-print(X)
+def reverse(X) :
+    i = 0
+    n = len(X)
+    while (i < n/2) :
+        temp = X[i]
+        X[i] = X[(n-1) - i]
+        X[(n-1) - i] = temp
+        i = i + 1
+    return X
+    
+X = [1, 2, 3, 4]
+Y = [1, 2, 3, 4, 5]
+Z = [1, 2, 3, 4, 5, 6]
+
+print(reverse(X))
+print(reverse(Y))
+print(reverse(Z))
 ```
 
 b) Siehe die Kommentare im Pseudocode fuer den Beweis
