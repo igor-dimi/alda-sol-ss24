@@ -61,6 +61,20 @@ proportional zur Anzahl der Knoten, die wir in der vorangehenden
 Diskussion berechnet haben, d.h. $T(n) = c_1n + c_2$. Dann
 gilt offensichtlich $T(n) = \Theta(n)$
 
+### 4
+
+Da, der zweite rekursive Aufruf bereits berechnet ist zum Zeitpunkt
+der erste Fertig ist, muss sein Zeitaufwand nicht zuesaetzlich addiert werden. 
+Somit erfuellt fuer diesen Fall die Laufzeit folgende Rekurrenzgleichung:
+
+\begin{align*}
+    T(1) &= 1\\
+    T(n) &= 1 + T(\frac{n}{2}) \tag{fuer $n = 2^k > 1$}
+\end{align*}
+
+Es ist leicht zu sehen, dass $\log_2(n)$ diese Rekurrenzgleichung erfuellt. 
+(Formaler Beweis durch Induktion). Dann $T(n) = \mathcal{O}(\log(n))$
+
 ## Aufgabe 2 
 
 ### a)
@@ -121,12 +135,13 @@ Wir gehen von einer Implementierung aus, die das **Dummy-element** verwendent, w
 
 **Idee**: Tausche fuer jedes List-Item die Pointer `next` und `prev` aus. Illustration:
 
-![Reverse(X)](./imgs/reverse-ddlist.png)
+![Reverse DLList](./imgs/reverse-ddlist.png)
 
 a) Pseudocode implementierung:
 
 ```default
 procedure reverse(X : List<T>)
+    assert(not X.is_empty())
     // let e1 := initial first element
     // let e_n := initial last element
 
@@ -143,7 +158,7 @@ procedure reverse(X : List<T>)
         ip->next := ip->prev
         ip->prev := ip_next
         ip = ip_next //increment to next item
-    //*ip == e_n 
+    //post-loop: *ip == e_n 
 
     // take care of e_n's pointers:
     ip.next = ip.prev
@@ -164,7 +179,7 @@ Anzahl von Grundoperationen durchgefuehrt $\Rightarrow \mathcal{O}(n)$.
 und inkrementiere zu den inneren. Siehe das Bild: 
 
 
-![Reverse Array](./imgs/revrese-array.png){width="50%"}
+![Reverse Array](./imgs/revrese-array.png){width="60%"}
 
 a) Pseudocode: 
 
@@ -178,7 +193,7 @@ procedure reverse(X: Array[0..n-1] of Nat)
         X[i] := X[(n-1) - i]
         X[(n-1) - i] := temp
         i := i + 1
-    // i == ceiling(n/2)
+    //post-loop: i == ceiling(n/2)
 ```
 
 Python Beispiel:
@@ -212,5 +227,46 @@ $n/2$ iterationen $\Rightarrow \Theta(n)$.
 
 
 ### 3
+
+**Idee**: Gehe die Liste durch und drehe die Pointer fuer jedes
+Listenelement um. Siehe das Bild:
+
+![Reverse SList](./imgs/reverse-slist.png){width="90%"} 
+
+a) Pseudocode:
+
+```default
+reverse(X : SList<T>)
+    assert(not X.is_empty())
+    // let <e1,...,e_n> be the initial contents of the list 
+    // i.e. initially X == <e1,...,e_n>
+    ip := X.first() : *Item<T>
+    ip_next := ip->next : *Item<T>
+    ip->next := &dummy //first element reversed
+
+    //invariant: 
+    // (*ip == e_k) => 
+    // (X == <reverse(e1,...,e_k),e_(k+1), ..., e_n> 
+    //   && 
+    // ip_next == e_(k+1))
+    while (ip_next != &dummy)
+        ip_next_next := ip_next->next : *Item<T>
+        ip_next->next := ip
+        ip := ip_next
+        ip_next := ip_next_next
+    //post-loop: *ip == e_n somit X == <reverse(e1,...,e_n)>
+    
+    // take care of dummy's next pointer
+    X.first() := ip 
+``` 
+
+b) Siehe Kommentare im Pseudocode
+c) Nur Pointer werden ueberschrieben $\Rightarrow$ keine extra Speicherbelegung.
+d) Sequentielle Bearbeitung der Listenelemente $\Rightarrow \Theta(n)$ 
+
+
+
+
+
 
 ### 4
