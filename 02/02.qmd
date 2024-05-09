@@ -254,15 +254,9 @@ reverse(X : SList<T>)
         ip_next->next := ip
         ip := ip_next
         ip_next := ip_next_next
-<<<<<<< HEAD
     //post-loop: *ip == e_n somit X == <reverse(e1,...,e_n)>
     
     // take care of dummy's next pointer
-=======
-    //post-loop: ip == e_n somit X == <reverse(e1,...,e_n)>
-    
-    // take care of dummy's pointer
->>>>>>> 518d221d88afa6f00ce74e8f96e68fc7d5744edd
     X.first() := ip 
 ``` 
 
