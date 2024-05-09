@@ -201,10 +201,10 @@ window.Quarto = {
   <ul>
   <li><a href="#aufgabe-1" id="toc-aufgabe-1" class="nav-link active" data-scroll-target="#aufgabe-1">Aufgabe 1</a>
   <ul class="collapse">
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">1</a></li>
-  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">2</a></li>
-  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">3</a></li>
-  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">4</a></li>
+  <li><a href="#rekursionsbaum" id="toc-rekursionsbaum" class="nav-link" data-scroll-target="#rekursionsbaum">1 Rekursionsbaum</a></li>
+  <li><a href="#array-zerlegung" id="toc-array-zerlegung" class="nav-link" data-scroll-target="#array-zerlegung">2 Array Zerlegung</a></li>
+  <li><a href="#laufzeit" id="toc-laufzeit" class="nav-link" data-scroll-target="#laufzeit">3 Laufzeit</a></li>
+  <li><a href="#laufzeit-parallel" id="toc-laufzeit-parallel" class="nav-link" data-scroll-target="#laufzeit-parallel">4 Laufzeit Parallel</a></li>
   </ul></li>
   <li><a href="#aufgabe-2" id="toc-aufgabe-2" class="nav-link" data-scroll-target="#aufgabe-2">Aufgabe 2</a>
   <ul class="collapse">
@@ -217,7 +217,8 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#doubly-linked-list" id="toc-doubly-linked-list" class="nav-link" data-scroll-target="#doubly-linked-list">1 Doubly Linked List</a></li>
   <li><a href="#array" id="toc-array" class="nav-link" data-scroll-target="#array">2 Array</a></li>
-  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4">3</a></li>
+  <li><a href="#simply-linked-list" id="toc-simply-linked-list" class="nav-link" data-scroll-target="#simply-linked-list">3 Simply Linked List</a></li>
+  <li><a href="#fast-reverse" id="toc-fast-reverse" class="nav-link" data-scroll-target="#fast-reverse">4 Fast Reverse</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -246,8 +247,8 @@ window.Quarto = {
 
 <section id="aufgabe-1" class="level2">
 <h2 class="anchored" data-anchor-id="aufgabe-1">Aufgabe 1</h2>
-<section id="section" class="level3">
-<h3 class="anchored" data-anchor-id="section">1</h3>
+<section id="rekursionsbaum" class="level3">
+<h3 class="anchored" data-anchor-id="rekursionsbaum">1 Rekursionsbaum</h3>
 <p>Rekursionsbaum des Aufrufs <code>sum(&lt;1, 2, 3, 4, 5, 6, 7, 8&gt;)</code></p>
 <div id="fig-baum" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -261,8 +262,8 @@ Figure&nbsp;2.1: Rekursionsbaum
 </div>
 <p>Die Nummerierung der Knoten entspricht der Berechnungsreihenfolge.</p>
 </section>
-<section id="section-1" class="level3">
-<h3 class="anchored" data-anchor-id="section-1">2</h3>
+<section id="array-zerlegung" class="level3">
+<h3 class="anchored" data-anchor-id="array-zerlegung">2 Array Zerlegung</h3>
 <p>Eine nicht-konstante Laufzeit ensteht, falls uebergebene arrays auf den Stack des Funktionsaufrufs kopiert werden muessen.</p>
 <p>Wenn eine gegebene Implementierung der Programmiersprache folgende zwei Eigenschaften aufweist, kann dies vermieden werden:</p>
 <ul>
@@ -272,8 +273,8 @@ Figure&nbsp;2.1: Rekursionsbaum
 <p>So wuerde fuer einen existierenden Array <span class="math inline">\(A : \text{Array} [0 .. n - 1] \text{ of } \mathbb{N}\)</span> der allgeimeiner Ausdruck <span class="math inline">\(A[l..k]\)</span> einen Array liefern, dessen Anfang-position im Speicher und Groesse durch Pointerarithmetik, bzw durch den Ausdruck <span class="math inline">\(k - l + 1\)</span> bestimmt werden koennen. Das sind nur zwei Grundoperationen, und somit <span class="math inline">\(\mathcal{O}(1)\)</span></p>
 <p>Da die Uebergabe der Arrays per Referenz stattfindet, wuerden die Aufrufe <code>sum(A[0..m-1])</code> und <code>sum(A[m..n-1])</code> nur konstante Zeit bei der Initialisuerungen auf ihren Function call-stacks benoetigen.</p>
 </section>
-<section id="section-2" class="level3">
-<h3 class="anchored" data-anchor-id="section-2">3</h3>
+<section id="laufzeit" class="level3">
+<h3 class="anchored" data-anchor-id="laufzeit">3 Laufzeit</h3>
 <ol type="a">
 <li>Die Laufzeit erfuellt die Rekurrenzgleichung:</li>
 </ol>
@@ -291,8 +292,8 @@ Figure&nbsp;2.1: Rekursionsbaum
 \end{align*}\]</span></p>
 <p>Bei jedem Knoten wird eine konstante Anzahl von Additions- &amp; Zuweisungsoperationen durchgefuehrt, und das Ergebnis zur aufrufenden Funktion zurueckgegeben. Somit ist die Laufzeit proportional zur Anzahl der Knoten, die wir in der vorangehenden Diskussion berechnet haben, d.h. <span class="math inline">\(T(n) = c_1n + c_2\)</span>. Dann gilt offensichtlich <span class="math inline">\(T(n) = \Theta(n)\)</span></p>
 </section>
-<section id="section-3" class="level3">
-<h3 class="anchored" data-anchor-id="section-3">4</h3>
+<section id="laufzeit-parallel" class="level3">
+<h3 class="anchored" data-anchor-id="laufzeit-parallel">4 Laufzeit Parallel</h3>
 <p>Da, der zweite rekursive Aufruf bereits berechnet ist zum Zeitpunkt der erste Fertig ist, muss sein Zeitaufwand nicht zuesaetzlich addiert werden. Somit erfuellt fuer diesen Fall die Laufzeit folgende Rekurrenzgleichung:</p>
 <p><span class="math display">\[\begin{align*}
     T(1) &amp;= 1\\
@@ -412,7 +413,7 @@ T(n) = c\cdot n + 4D(\frac{n}{4})
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        i := i + 1</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    //post-loop: i == ceiling(n/2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Python Beispiel:</p>
-<div id="22be13e9" class="cell" data-execution_count="1">
+<div id="36cf5fc3" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> reverse(X) :</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    i <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(X)</span>
@@ -442,8 +443,8 @@ T(n) = c\cdot n + 4D(\frac{n}{4})
 <li>Der Algorithmus besteht aus einer <code>while</code>-schleife mit <span class="math inline">\(n/2\)</span> iterationen <span class="math inline">\(\Rightarrow \Theta(n)\)</span>.</li>
 </ol>
 </section>
-<section id="section-4" class="level3">
-<h3 class="anchored" data-anchor-id="section-4">3</h3>
+<section id="simply-linked-list" class="level3">
+<h3 class="anchored" data-anchor-id="simply-linked-list">3 Simply Linked List</h3>
 <p><strong>Idee</strong>: Gehe die Liste durch und drehe die Pointer fuer jedes Listenelement um. Siehe das Bild:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -479,8 +480,11 @@ T(n) = c\cdot n + 4D(\frac{n}{4})
 <ol start="2" type="a">
 <li>Siehe Kommentare im Pseudocode</li>
 <li>Nur Pointer werden ueberschrieben <span class="math inline">\(\Rightarrow\)</span> keine extra Speicherbelegung.</li>
-<li>Sequentielle Bearbeitung der Listenelemente <span class="math inline">\(\Rightarrow \Theta(n)\)</span> ### 4</li>
+<li>Sequentielle Bearbeitung der Listenelemente <span class="math inline">\(\Rightarrow \Theta(n)\)</span></li>
 </ol>
+</section>
+<section id="fast-reverse" class="level3">
+<h3 class="anchored" data-anchor-id="fast-reverse">4 Fast Reverse</h3>
 
 
 </section>
