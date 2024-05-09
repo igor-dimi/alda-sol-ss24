@@ -242,13 +242,13 @@ reverse(X : SList<T>)
     // i.e. initially X == <e1,...,e_n>
     ip := X.first() : *Item<T>      //*ip == e1
     ip_next := ip->next : *Item<T>  //*ip_next == e2
-    ip->next := &dummy          //first element reversed
+    ip->next := &dummy          //e1 is now last
 
     //invariant: 
     // (*ip == e_k) => 
-    // (X == <reverse(e1,...,e_k),e_(k+1), ..., e_n> 
+    // *ip_next == e_(k+1))
     //   && 
-    // ip_next == e_(k+1))
+    //reversed from e1 to e_k, i.e. X == <..TBD..,e_k, ..., e1>
     while (ip_next != &dummy)
         ip_next_next := ip_next->next : *Item<T>
         ip_next->next := ip
