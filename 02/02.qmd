@@ -186,7 +186,7 @@ a) Pseudocode:
 ```default
 procedure reverse(X: Array[0..n-1] of Nat)
     i := 0 : Nat
-    // invariant: the X[0..i] and X[(n-1) - i .. n-1]
+    // invariant: the X[0..i-1] and X[(n-1) - (i-1) .. n-1]
     // portions of X are reversed
     while (i < n/2)
         temp := X[i] : Nat
