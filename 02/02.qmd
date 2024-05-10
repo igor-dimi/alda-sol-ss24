@@ -263,3 +263,6 @@ c) Nur Pointer werden ueberschrieben $\Rightarrow$ keine extra Speicherbelegung.
 d) Sequentielle Bearbeitung der Listenelemente $\Rightarrow \Theta(n)$ 
 
 ### 4 Fast Reverse
+
+Das ist nicht moeglich, da Kopieren einer Liste oder eines Arrays der Laenge $n$ $\mathcal{O}(n)$
+Operationen benoetigen wuerde. Unsere "in-place" Algorithmen sind bereits $\mathcal{O}(n)$
