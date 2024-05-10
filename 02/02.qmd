@@ -264,7 +264,7 @@ d) Sequentielle Bearbeitung der Listenelemente $\Rightarrow \Theta(n)$
 
 ### 4 Fast Reverse
 
-Das ist nicht moeglich, da Kopieren einer Liste oder eines Arrays der Laenge $n$ $\mathcal{O}(n)$
+Das ist nicht moeglich, da Kopieren einer Liste oder eines Arrays der Laenge $n$ $\Theta(n)$
 Operationen benoetigen wuerde. Somit sind Algorithmen, die Listen- oder Arrayelemente kopieren
-mindestens $\mathcal{O}(n)$. 
-Unsere "in-place" Algorithmen sind bereits $\mathcal{O}(n)$
+mindestens $\Theta(n)$. 
+Unsere "in-place" Algorithmen sind bereits $\Theta(n)$
