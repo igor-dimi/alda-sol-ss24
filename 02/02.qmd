@@ -142,16 +142,14 @@ a) Pseudocode implementierung:
 ```default
 procedure reverse(X : List<T>)
     assert(not X.is_empty())
-    // let e1 := initial first element
-    // let e_n := initial last element
+    // let initially X == <e1, ..., e_n>
 
-    // define ip initially to point to e1
-    // exchange last and first, e1 is now last
+    // exchange dummy's prev and next pointers
     ip := X.first() : *Item<T>
     X.first() := X.last()
     X.last() := ip
 
-    // invariant: reversed from e1 to *ip
+    // invariant: reversed from e1 up-to (excluding) *ip
     while (ip->next != &dummy)
         //exchange next and prev of the item pointed by ip
         ip_next := ip->next : *Item<T>
