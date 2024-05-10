@@ -19,7 +19,10 @@ format:
   html:
     theme: cosmo
   pdf:
-    documentclass: scrreprt
+    include-in-header: 
+      - text : |
+          \usepackage{fvextra}
+          \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
 
 
 
