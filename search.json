@@ -98,5 +98,25 @@
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Blatt 3</span>"
     ]
+  },
+  {
+    "objectID": "05/05.html",
+    "href": "05/05.html",
+    "title": "4  Blatt 5",
+    "section": "",
+    "text": "Aufgabe 3 (Sortieren)\nMatrikel Nr: 3650174",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Blatt 5</span>"
+    ]
+  },
+  {
+    "objectID": "05/05.html#aufgabe-3-sortieren",
+    "href": "05/05.html#aufgabe-3-sortieren",
+    "title": "4  Blatt 5",
+    "section": "",
+    "text": "Insertion Sort\nMit der folgenden Python Implementierung fuer Insertion-sort wird nach jedem Insert der Zustand des Arrays ausgegeben:\n\ndef insertion_sort(a) :\n    n = len(a)\n    # invariant: sorted a[0..i]\n    for i in range(1, n) :\n        # insert i in the right position\n        j = i - 1\n        el = a[i]\n        while el &lt; a[j] and j &gt; 0 :\n            a[j + 1] = a[j]\n            j = j - 1\n        # el &gt;= a[j] or j == 0\n        if el &lt; a[j] : # j == 0\n            a[1] = a[0]\n            a[0] = el\n        else : # el &gt;= a[j] \n            a[j + 1] = el\n        print(\"after insertion \", i, \": \", a)\n    return a\n\ninsertion_sort([3, 6, 5, 0, 1, 7, 4])\n\nafter insertion  1 :  [3, 6, 5, 0, 1, 7, 4]\nafter insertion  2 :  [3, 5, 6, 0, 1, 7, 4]\nafter insertion  3 :  [0, 3, 5, 6, 1, 7, 4]\nafter insertion  4 :  [0, 1, 3, 5, 6, 7, 4]\nafter insertion  5 :  [0, 1, 3, 5, 6, 7, 4]\nafter insertion  6 :  [0, 1, 3, 4, 5, 6, 7]\n\n\n[0, 1, 3, 4, 5, 6, 7]\n\n\n\n\nMerge Sort\nSiehe Abbildung:\n\n\n\nmerge sort\n\n\n\n\nQuick Sort\n1st call on 365017:\n\\[\\begin{align*}\n    &\\overset{i}{3}65017\\overset{j}{4} \\tag{p = 2} \\\\\n    \\Rightarrow &\\overset{i}{3}650\\overset{j}{1}74 \\tag{iterate i, j} \\\\\n    \\Rightarrow &\\boxed{3}650\\boxed{1}74 \\tag{swap 3, 1} \\\\\n    \\Rightarrow &1\\overset{i}{6}5\\overset{j}{0}374 \\tag{iterate i, j} \\\\\n    \\Rightarrow &1\\boxed{6}5\\boxed{0}374 \\tag{swap 6, 0} \\\\\n    \\Rightarrow &10\\overset{i,j}{5}6374 \\tag{iterate i, j} \\\\\n    \\Rightarrow &1\\overset{j}{0}|\\overset{i}{5}6374 \\tag{end}\n\\end{align*}\\]\n2nd level call 1 on 10:\n\\[\\begin{align*}\n    &\\overset{i}{1}\\overset{j}{0} \\tag{p = 1} \\\\\n    \\Rightarrow &\\overset{j}{0}\\overset{i}{1} \\tag{iterate i, j; swap 1, 0; end}\n\\end{align*}\\]\n2nd level call 2 on 56374:\n\\[\\begin{align*}\n    &\\overset{i}{\\boxed{5}}637\\overset{j}{\\boxed{4}} \\tag{p = 5, iterate, swap 5, 4} \\\\\n    \\Rightarrow &4\\overset{i}63\\overset{j}75 \\tag{iterate} \\\\\n    \\Rightarrow &4\\overset{i}{\\boxed{6}}\\overset{j}{\\boxed{3}}75 \\tag{swap} \\\\\n    \\Rightarrow &4\\overset{j}{3}|\\overset{i}{6}75 \\tag{end}\n\\end{align*}\\]\n3rd level call 1 on 43:\n\\[\\begin{align*}\n    &\\overset{i}{4}\\overset{j}{3} \\tag{p = 4} \\\\\n    \\Rightarrow &\\overset{j}{3}\\overset{i}{4} \\tag{iterate i, j; swap 4, 3; end}\n\\end{align*}\\]\n3rd level call 2 on 675:\n\\[\\begin{align*}\n    &\\overset{i}{6}7\\overset{j}{5} \\tag{p = 6} \\\\\n    \\Rightarrow &\\overset{i}{\\boxed{6}}7\\overset{j}{\\boxed{5}} \\tag{iterate; swap} \\\\\n    \\Rightarrow &5\\overset{ij}{7}6 \\tag{iterate} \\\\\n    \\Rightarrow &\\overset{j}{5}|7\\overset{i}{6} \\tag{end}\n\\end{align*}\\]\n4th level last call on 76:\n\\[\\begin{align*}\n    &\\overset{i}{7}\\overset{j}{6} \\tag{p = 7} \\\\\n    \\Rightarrow &\\overset{j}{6}\\overset{i}{7} \\tag{iterate i, j; swap 7, 6; end}\n\\end{align*}\\]\nalltogether:\n3 6 5 0 1 7 4\n1 0|5 6 3 7 4\n0 1|4 3|6 7 5\n   |3 4|5|7 6\n         |6 7\n\n=&gt; output: 0 1 3 4 5 6 7",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Blatt 5</span>"
+    ]
   }
 ]

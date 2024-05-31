@@ -196,6 +196,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Blatt 3</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../05/05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Blatt 5</span></span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -385,7 +391,7 @@ f \notin \mathcal{O}(f_2) \tag{$n^2 \notin \mathcal{O}(n)$}
 <section id="c" class="level3">
 <h3 class="anchored" data-anchor-id="c">c)</h3>
 <p>Wir ‘simulieren’ Exponentiation durch einzelne Additionsoperationen. Somit ist <span class="math inline">\(n^n\)</span> in <span class="math inline">\(n^n\)</span> Additionen berechnet - Python Implementierung:</p>
-<div id="30256485" class="cell" data-execution_count="1">
+<div id="351296ab" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add(n, m) :</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> m <span class="op">==</span> <span class="dv">0</span> : <span class="cf">return</span> n</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">1</span> <span class="op">+</span> add(n, m <span class="op">-</span> <span class="dv">1</span>)</span>
@@ -401,7 +407,7 @@ f \notin \mathcal{O}(f_2) \tag{$n^2 \notin \mathcal{O}(n)$}
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(n) : <span class="cf">return</span> exp(n, n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Wir testen diese Funktion fuer einige Werte:</p>
-<div id="0230d7a2" class="cell" data-execution_count="2">
+<div id="e2045133" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>) :</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(f(i))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -435,7 +441,7 @@ f \notin \mathcal{O}(f_2) \tag{$n^2 \notin \mathcal{O}(n)$}
 <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    // post-condition: count == k</span>
 <span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>//post-condition b == n =&gt; count == 2^n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Python Implementierung:</p>
-<div id="891b8b6e" class="cell" data-execution_count="3">
+<div id="5b2ee27d" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> binary_count(n) :</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    base <span class="op">=</span> count <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    k <span class="op">=</span> <span class="dv">1</span></span>
@@ -447,7 +453,7 @@ f \notin \mathcal{O}(f_2) \tag{$n^2 \notin \mathcal{O}(n)$}
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> count</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Wir testen diese Funktion fuer einige Werte. Das Ergebniss ist die Anzahl der Schritte fuer die jeweilige Eingabe:</p>
-<div id="e7b33026" class="cell" data-execution_count="4">
+<div id="beec8292" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">11</span>) :</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(binary_count(i))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">

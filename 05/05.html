@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Algorithms &amp; Data Structures Solutions - SoSe 24 - 2&nbsp; Blatt 2</title>
+<title>Algorithms &amp; Data Structures Solutions - SoSe 24 - 4&nbsp; Blatt 5</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../03/03.html" rel="next">
-<link href="../01/01.html" rel="prev">
+<link href="../03/03.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -144,7 +143,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02/02.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Blatt 2</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../05/05.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Blatt 5</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -186,7 +185,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../02/02.html" class="sidebar-item-text sidebar-link active">
+  <a href="../02/02.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Blatt 2</span></span></a>
   </div>
 </li>
@@ -198,7 +197,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../05/05.html" class="sidebar-item-text sidebar-link">
+  <a href="../05/05.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Blatt 5</span></span></a>
   </div>
 </li>
@@ -212,26 +211,11 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#aufgabe-1" id="toc-aufgabe-1" class="nav-link active" data-scroll-target="#aufgabe-1">Aufgabe 1</a>
+  <li><a href="#aufgabe-3-sortieren" id="toc-aufgabe-3-sortieren" class="nav-link active" data-scroll-target="#aufgabe-3-sortieren">Aufgabe 3 (Sortieren)</a>
   <ul class="collapse">
-  <li><a href="#rekursionsbaum" id="toc-rekursionsbaum" class="nav-link" data-scroll-target="#rekursionsbaum">1 Rekursionsbaum</a></li>
-  <li><a href="#array-zerlegung" id="toc-array-zerlegung" class="nav-link" data-scroll-target="#array-zerlegung">2 Array Zerlegung</a></li>
-  <li><a href="#laufzeit" id="toc-laufzeit" class="nav-link" data-scroll-target="#laufzeit">3 Laufzeit</a></li>
-  <li><a href="#laufzeit-parallel" id="toc-laufzeit-parallel" class="nav-link" data-scroll-target="#laufzeit-parallel">4 Laufzeit Parallel</a></li>
-  </ul></li>
-  <li><a href="#aufgabe-2" id="toc-aufgabe-2" class="nav-link" data-scroll-target="#aufgabe-2">Aufgabe 2</a>
-  <ul class="collapse">
-  <li><a href="#a" id="toc-a" class="nav-link" data-scroll-target="#a">a)</a></li>
-  <li><a href="#b" id="toc-b" class="nav-link" data-scroll-target="#b">b)</a></li>
-  <li><a href="#c" id="toc-c" class="nav-link" data-scroll-target="#c">c)</a></li>
-  <li><a href="#d" id="toc-d" class="nav-link" data-scroll-target="#d">d)</a></li>
-  </ul></li>
-  <li><a href="#aufgabe-3" id="toc-aufgabe-3" class="nav-link" data-scroll-target="#aufgabe-3">Aufgabe 3</a>
-  <ul class="collapse">
-  <li><a href="#doubly-linked-list" id="toc-doubly-linked-list" class="nav-link" data-scroll-target="#doubly-linked-list">1 Doubly Linked List</a></li>
-  <li><a href="#array" id="toc-array" class="nav-link" data-scroll-target="#array">2 Array</a></li>
-  <li><a href="#simply-linked-list" id="toc-simply-linked-list" class="nav-link" data-scroll-target="#simply-linked-list">3 Simply Linked List</a></li>
-  <li><a href="#fast-reverse" id="toc-fast-reverse" class="nav-link" data-scroll-target="#fast-reverse">4 Fast Reverse</a></li>
+  <li><a href="#insertion-sort" id="toc-insertion-sort" class="nav-link" data-scroll-target="#insertion-sort">Insertion Sort</a></li>
+  <li><a href="#merge-sort" id="toc-merge-sort" class="nav-link" data-scroll-target="#merge-sort">Merge Sort</a></li>
+  <li><a href="#quick-sort" id="toc-quick-sort" class="nav-link" data-scroll-target="#quick-sort">Quick Sort</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -241,7 +225,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Blatt 2</span></h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Blatt 5</span></h1>
 </div>
 
 
@@ -258,245 +242,105 @@ window.Quarto = {
 </header>
 
 
-<section id="aufgabe-1" class="level2">
-<h2 class="anchored" data-anchor-id="aufgabe-1">Aufgabe 1</h2>
-<section id="rekursionsbaum" class="level3">
-<h3 class="anchored" data-anchor-id="rekursionsbaum">1 Rekursionsbaum</h3>
-<p>Rekursionsbaum des Aufrufs <code>sum(&lt;1, 2, 3, 4, 5, 6, 7, 8&gt;)</code></p>
-<div id="fig-baum" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-baum-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="./imgs/a1-1-baum.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-baum-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.1: Rekursionsbaum
-</figcaption>
-</figure>
-</div>
-<p>Die Nummerierung der Knoten entspricht der Berechnungsreihenfolge.</p>
-</section>
-<section id="array-zerlegung" class="level3">
-<h3 class="anchored" data-anchor-id="array-zerlegung">2 Array Zerlegung</h3>
-<p>Eine nicht-konstante Laufzeit ensteht, falls uebergebene arrays auf den Stack des Funktionsaufrufs kopiert werden muessen.</p>
-<p>Wenn eine gegebene Implementierung der Programmiersprache folgende zwei Eigenschaften aufweist, kann dies vermieden werden:</p>
-<ul>
-<li>Die Groesse eines Arrays ist immer als zusaetzliche Information beinhaltet.</li>
-<li>Die Funktionsaufrufe werden per-default als <strong>call by reference</strong> realisiert statt <strong>call by value</strong>.</li>
-</ul>
-<p>So wuerde fuer einen existierenden Array <span class="math inline">\(A : \text{Array} [0 .. n - 1] \text{ of } \mathbb{N}\)</span> der allgeimeiner Ausdruck <span class="math inline">\(A[l..k]\)</span> einen Array liefern, dessen Anfang-position im Speicher und Groesse durch Pointerarithmetik, bzw durch den Ausdruck <span class="math inline">\(k - l + 1\)</span> bestimmt werden koennen. Das sind nur zwei Grundoperationen, und somit <span class="math inline">\(\mathcal{O}(1)\)</span></p>
-<p>Da die Uebergabe der Arrays per Referenz stattfindet, wuerden die Aufrufe <code>sum(A[0..m-1])</code> und <code>sum(A[m..n-1])</code> nur konstante Zeit bei der Initialisuerungen auf ihren Function call-stacks benoetigen.</p>
-</section>
-<section id="laufzeit" class="level3">
-<h3 class="anchored" data-anchor-id="laufzeit">3 Laufzeit</h3>
-<ol type="a">
-<li>Die Laufzeit erfuellt die Rekurrenzgleichung:</li>
-</ol>
-<p><span class="math display">\[\begin{align*}
-    T(1) &amp;= 1\\
-    T(n) &amp;= 1 + 2\cdot T(\frac{n}{2}) \tag{fuer $n = 2^k &gt; 1$}
-\end{align*}\]</span></p>
-<ol start="2" type="a">
-<li>Da, die Eingabe bei jedem Aufruf halbiert wird ist die Tiefe des Rekurrenzbaums (<a href="#fig-baum" class="quarto-xref">Figure&nbsp;<span>2.1</span></a>) <span class="math inline">\(k = \log_2(n)\)</span>. Dieser Baum ist vollstaendig binaer, deshalb enthaelt jede Tiefe <span class="math inline">\(i\)</span> genau <span class="math inline">\(2^i\)</span> Knoten, fuer <span class="math inline">\(i=0\dots k\)</span>. Somit betreagt die Gesamtzahl der Knoten:</li>
-</ol>
-<p><span class="math display">\[\begin{align*}
-    N &amp;= \sum_{i=0}^{\log_2(n)}2^i \\
-      &amp;= 2^{\log_2(n) + 1} - 1 \tag{Geom Reihe} \\
-      &amp;= 2n - 1
-\end{align*}\]</span></p>
-<p>Bei jedem Knoten wird eine konstante Anzahl von Additions- &amp; Zuweisungsoperationen durchgefuehrt, und das Ergebnis zur aufrufenden Funktion zurueckgegeben. Somit ist die Laufzeit proportional zur Anzahl der Knoten, die wir in der vorangehenden Diskussion berechnet haben, d.h. <span class="math inline">\(T(n) = c_1n + c_2\)</span>. Dann gilt offensichtlich <span class="math inline">\(T(n) = \Theta(n)\)</span></p>
-</section>
-<section id="laufzeit-parallel" class="level3">
-<h3 class="anchored" data-anchor-id="laufzeit-parallel">4 Laufzeit Parallel</h3>
-<p>Da, der zweite rekursive Aufruf bereits berechnet ist zum Zeitpunkt der erste Fertig ist, muss sein Zeitaufwand nicht zuesaetzlich addiert werden. Somit erfuellt fuer diesen Fall die Laufzeit folgende Rekurrenzgleichung:</p>
-<p><span class="math display">\[\begin{align*}
-    T(1) &amp;= 1\\
-    T(n) &amp;= 1 + T(\frac{n}{2}) \tag{fuer $n = 2^k &gt; 1$}
-\end{align*}\]</span></p>
-<p>Es ist leicht zu sehen, dass <span class="math inline">\(\log_2(n)\)</span> diese Rekurrenzgleichung erfuellt. (Formaler Beweis durch Induktion). Dann <span class="math inline">\(T(n) = \mathcal{O}(\log(n))\)</span></p>
-</section>
-</section>
-<section id="aufgabe-2" class="level2">
-<h2 class="anchored" data-anchor-id="aufgabe-2">Aufgabe 2</h2>
-<section id="a" class="level3">
-<h3 class="anchored" data-anchor-id="a">a)</h3>
-<p><span class="math display">\[\begin{align*}
-    &amp; a = 1, \\
-    &amp;c = \tilde{c}, \\
-    &amp;d = 1 &lt; 2 = b \\
-    \Rightarrow &amp;T(n) \in \Theta(n) \tag{Fall $d &lt; b$ des MT}
-\end{align*}\]</span></p>
-</section>
-<section id="b" class="level3">
-<h3 class="anchored" data-anchor-id="b">b)</h3>
-<p><span class="math display">\[\begin{align*}
-    &amp; a = 1, \\
-    &amp;c = 4, \\
-    &amp;d = 9 &gt; 3 = b \\
-    \Rightarrow &amp;T(n) \in \Theta(n^{\log_3(9)}) = \Theta(n^2) \tag{Fall $d &gt; b$ des MT}
-\end{align*}\]</span></p>
-</section>
-<section id="c" class="level3">
-<h3 class="anchored" data-anchor-id="c">c)</h3>
-<p>Der Ausdruck <span class="math inline">\(C(n/4) + n + 6\)</span> kann asymptotisch als <span class="math inline">\(C(n/4) + n\)</span> kann vereinfacht werden, da Addition mit konstante vernachlaessigt werden kann. Somit:</p>
-<p><span class="math display">\[\begin{align*}
-    &amp; a = 1, \\
-    &amp;c = 1, \\
-    &amp;d = 1 &lt; 4 = b \\
-    \Rightarrow &amp;T(n) \in \Theta(n) \tag{Fall $d &lt; b$ des MT}
-\end{align*}\]</span></p>
-</section>
-<section id="d" class="level3">
-<h3 class="anchored" data-anchor-id="d">d)</h3>
-<p>In c) wurde gezeigt, dass <span class="math inline">\(C(n) \in \Theta(n)\)</span>. Somit kann <span class="math inline">\(C(n)\)</span> fuer asymptotische Zwecke durch <span class="math inline">\(c\cdot n\)</span> erzetzt werden. Dann gilt:</p>
-<p><span class="math display">\[
-T(n) = c\cdot n + 4D(\frac{n}{4})
-\]</span></p>
-<p>und somit:</p>
-<p><span class="math display">\[\begin{align*}
-    &amp;a = 1, \\
-    &amp;d = 4 = 4 = b \\
-    \Rightarrow &amp;T(n) \in \Theta(n\log n) \tag{Fall $d = b$ des MT}
-\end{align*}\]</span></p>
-</section>
-</section>
-<section id="aufgabe-3" class="level2">
-<h2 class="anchored" data-anchor-id="aufgabe-3">Aufgabe 3</h2>
-<section id="doubly-linked-list" class="level3">
-<h3 class="anchored" data-anchor-id="doubly-linked-list">1 Doubly Linked List</h3>
-<p>Wir gehen von einer Implementierung aus, die das <strong>Dummy-element</strong> verwendent, wie in der VL beschrieben.</p>
-<p><strong>Idee</strong>: Tausche fuer jedes List-Item die Pointer <code>next</code> und <code>prev</code> aus. Illustration:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="./imgs/reverse-ddlist.png" class="img-fluid figure-img"></p>
-<figcaption>Reverse DLList</figcaption>
-</figure>
-</div>
-<ol type="a">
-<li>Pseudocode implementierung:</li>
-</ol>
-<div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>procedure reverse(X : List&lt;T&gt;)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    assert(not X.is_empty())</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    // let initially X == &lt;e1, ..., e_n&gt;</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    // exchange dummy's prev and next pointers</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    ip := X.first() : *Item&lt;T&gt;</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    X.first() := X.last()</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    X.last() := ip</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    // invariant: reversed from e1 up-to (excluding) *ip</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    while (ip-&gt;next != &amp;dummy)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        //exchange next and prev of the item pointed by ip</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        ip_next := ip-&gt;next : *Item&lt;T&gt;</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        ip-&gt;next := ip-&gt;prev</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        ip-&gt;prev := ip_next</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        ip = ip_next //increment to next item</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    //post-loop: *ip == e_n </span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    // take care of e_n's pointers:</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    ip.next = ip.prev</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    ip.prev = &amp;dummy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="2" type="a">
-<li>Siehe Kommentare fuer den Beweis der Korrektheit</li>
-<li>Der Algorithmus benoetigt keine zusaetzliche Worte, da es keine neue Listenelemente abgelegt oder existierende Elemente kopiert werden. Es werden einfach nur Pointer ausgetauscht.</li>
-<li>Die Listenelemente werden sequentiell durchgelaufen und fuer jedes Element werden eine konstante Anzahl von Grundoperationen durchgefuehrt <span class="math inline">\(\Rightarrow \mathcal{O}(n)\)</span>.</li>
-</ol>
-</section>
-<section id="array" class="level3">
-<h3 class="anchored" data-anchor-id="array">2 Array</h3>
-<p><strong>Idee</strong>: Tausche die ‘aussersten’ noch nicht ausgetauschten Elementen aus, und inkrementiere zu den inneren. Siehe das Bild:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="./imgs/revrese-array.png" class="img-fluid figure-img" style="width:60.0%"></p>
-<figcaption>Reverse Array</figcaption>
-</figure>
-</div>
-<ol type="a">
-<li>Pseudocode:</li>
-</ol>
-<div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>procedure reverse(X: Array[0..n-1] of Nat)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    i := 0 : Nat</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    // invariant: the X[0..i-1] and X[(n-1) - (i-1) .. n-1]</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    // portions of X are reversed</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    while (i &lt; n/2)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        temp := X[i] : Nat</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        X[i] := X[(n-1) - i]</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        X[(n-1) - i] := temp</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        i := i + 1</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    //post-loop: i == ceiling(n/2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Python Beispiel:</p>
-<div id="a7856e53" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> reverse(X) :</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    i <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(X)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> (i <span class="op">&lt;</span> n<span class="op">/</span><span class="dv">2</span>) :</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        temp <span class="op">=</span> X[i]</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        X[i] <span class="op">=</span> X[(n<span class="op">-</span><span class="dv">1</span>) <span class="op">-</span> i]</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        X[(n<span class="op">-</span><span class="dv">1</span>) <span class="op">-</span> i] <span class="op">=</span> temp</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        i <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> X</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>]</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>Z <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(reverse(X))</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(reverse(Y))</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(reverse(Z))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="aufgabe-3-sortieren" class="level2">
+<h2 class="anchored" data-anchor-id="aufgabe-3-sortieren">Aufgabe 3 (Sortieren)</h2>
+<p><strong>Matrikel Nr</strong>: 3650174</p>
+<section id="insertion-sort" class="level3">
+<h3 class="anchored" data-anchor-id="insertion-sort">Insertion Sort</h3>
+<p>Mit der folgenden Python Implementierung fuer Insertion-sort wird nach jedem Insert der Zustand des Arrays ausgegeben:</p>
+<div id="565c43f1" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> insertion_sort(a) :</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(a)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># invariant: sorted a[0..i]</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, n) :</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="co"># insert i in the right position</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        j <span class="op">=</span> i <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        el <span class="op">=</span> a[i]</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> el <span class="op">&lt;</span> a[j] <span class="kw">and</span> j <span class="op">&gt;</span> <span class="dv">0</span> :</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>            a[j <span class="op">+</span> <span class="dv">1</span>] <span class="op">=</span> a[j]</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>            j <span class="op">=</span> j <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="co"># el &gt;= a[j] or j == 0</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> el <span class="op">&lt;</span> a[j] : <span class="co"># j == 0</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>            a[<span class="dv">1</span>] <span class="op">=</span> a[<span class="dv">0</span>]</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>            a[<span class="dv">0</span>] <span class="op">=</span> el</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> : <span class="co"># el &gt;= a[j] </span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>            a[j <span class="op">+</span> <span class="dv">1</span>] <span class="op">=</span> el</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"after insertion "</span>, i, <span class="st">": "</span>, a)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>insertion_sort([<span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">5</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">7</span>, <span class="dv">4</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[4, 3, 2, 1]
-[5, 4, 3, 2, 1]
-[6, 5, 4, 3, 2, 1]</code></pre>
+<pre><code>after insertion  1 :  [3, 6, 5, 0, 1, 7, 4]
+after insertion  2 :  [3, 5, 6, 0, 1, 7, 4]
+after insertion  3 :  [0, 3, 5, 6, 1, 7, 4]
+after insertion  4 :  [0, 1, 3, 5, 6, 7, 4]
+after insertion  5 :  [0, 1, 3, 5, 6, 7, 4]
+after insertion  6 :  [0, 1, 3, 4, 5, 6, 7]</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>[0, 1, 3, 4, 5, 6, 7]</code></pre>
 </div>
 </div>
-<ol start="2" type="a">
-<li>Siehe die Kommentare im Pseudocode fuer den Beweis der Korrektheit</li>
-<li>Der Algorithmus verwendet keine neue Worte, da die Eintrage des Arrays “in-place” ausgetauscht werden. D.h. der vorhandene Array wird ueberschrieben</li>
-<li>Der Algorithmus besteht aus einer <code>while</code>-schleife mit <span class="math inline">\(n/2\)</span> iterationen <span class="math inline">\(\Rightarrow \Theta(n)\)</span>.</li>
-</ol>
 </section>
-<section id="simply-linked-list" class="level3">
-<h3 class="anchored" data-anchor-id="simply-linked-list">3 Simply Linked List</h3>
-<p><strong>Idee</strong>: Gehe die Liste durch und drehe die Pointer fuer jedes Listenelement um. Siehe das Bild:</p>
+<section id="merge-sort" class="level3">
+<h3 class="anchored" data-anchor-id="merge-sort">Merge Sort</h3>
+<p>Siehe Abbildung:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./imgs/reverse-slist.png" class="img-fluid figure-img" style="width:90.0%"></p>
-<figcaption>Reverse SList</figcaption>
+<p><img src="imgs/merge-sort.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<figcaption>merge sort</figcaption>
 </figure>
 </div>
-<ol type="a">
-<li>Pseudocode:</li>
-</ol>
-<div class="sourceCode" id="cb5"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>reverse(X : SList&lt;T&gt;)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    assert(not X.is_empty())</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    // let &lt;e1,...,e_n&gt; be the initial contents of the list </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    // i.e. initially X == &lt;e1,...,e_n&gt;</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    ip := X.first() : *Item&lt;T&gt;      //*ip == e1</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    ip_next := ip-&gt;next : *Item&lt;T&gt;  //*ip_next == e2</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    ip-&gt;next := &amp;dummy          //e1 is now last</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    //invariant: </span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    // (*ip == e_k) =&gt; </span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    // *ip_next == e_(k+1))</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    //   &amp;&amp; </span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    //reversed from e1 to e_k, i.e. X == &lt;..TBD..,e_k, ..., e1&gt;</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    while (ip_next != &amp;dummy)</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>        ip_next_next := ip_next-&gt;next : *Item&lt;T&gt;</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>        ip_next-&gt;next := ip</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>        ip := ip_next</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>        ip_next := ip_next_next</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    //post-loop: *ip == e_n</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    // take care of dummy's next pointer</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    X.first() := ip </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="2" type="a">
-<li>Siehe Kommentare im Pseudocode</li>
-<li>Nur Pointer werden ueberschrieben <span class="math inline">\(\Rightarrow\)</span> keine extra Speicherbelegung.</li>
-<li>Sequentielle Bearbeitung der Listenelemente <span class="math inline">\(\Rightarrow \Theta(n)\)</span></li>
-</ol>
 </section>
-<section id="fast-reverse" class="level3">
-<h3 class="anchored" data-anchor-id="fast-reverse">4 Fast Reverse</h3>
-<p>Das ist nicht moeglich, da Kopieren einer Liste oder eines Arrays der Laenge <span class="math inline">\(n\)</span> <span class="math inline">\(\Theta(n)\)</span> Operationen benoetigen wuerde. Somit sind Algorithmen, die Listen- oder Arrayelemente kopieren mindestens <span class="math inline">\(\Theta(n)\)</span>. Unsere “in-place” Algorithmen sind bereits <span class="math inline">\(\Theta(n)\)</span></p>
+<section id="quick-sort" class="level3">
+<h3 class="anchored" data-anchor-id="quick-sort">Quick Sort</h3>
+<p>1st call on 365017:</p>
+<p><span class="math display">\[\begin{align*}
+    &amp;\overset{i}{3}65017\overset{j}{4} \tag{p = 2} \\
+    \Rightarrow &amp;\overset{i}{3}650\overset{j}{1}74 \tag{iterate i, j} \\
+    \Rightarrow &amp;\boxed{3}650\boxed{1}74 \tag{swap 3, 1} \\
+    \Rightarrow &amp;1\overset{i}{6}5\overset{j}{0}374 \tag{iterate i, j} \\
+    \Rightarrow &amp;1\boxed{6}5\boxed{0}374 \tag{swap 6, 0} \\
+    \Rightarrow &amp;10\overset{i,j}{5}6374 \tag{iterate i, j} \\
+    \Rightarrow &amp;1\overset{j}{0}|\overset{i}{5}6374 \tag{end}
+\end{align*}\]</span></p>
+<p>2nd level call 1 on 10:</p>
+<p><span class="math display">\[\begin{align*}
+    &amp;\overset{i}{1}\overset{j}{0} \tag{p = 1} \\
+    \Rightarrow &amp;\overset{j}{0}\overset{i}{1} \tag{iterate i, j; swap 1, 0; end}
+\end{align*}\]</span></p>
+<p>2nd level call 2 on 56374:</p>
+<p><span class="math display">\[\begin{align*}
+    &amp;\overset{i}{\boxed{5}}637\overset{j}{\boxed{4}} \tag{p = 5, iterate, swap 5, 4} \\
+    \Rightarrow &amp;4\overset{i}63\overset{j}75 \tag{iterate} \\
+    \Rightarrow &amp;4\overset{i}{\boxed{6}}\overset{j}{\boxed{3}}75 \tag{swap} \\
+    \Rightarrow &amp;4\overset{j}{3}|\overset{i}{6}75 \tag{end}
+\end{align*}\]</span></p>
+<p>3rd level call 1 on 43:</p>
+<p><span class="math display">\[\begin{align*}
+    &amp;\overset{i}{4}\overset{j}{3} \tag{p = 4} \\
+    \Rightarrow &amp;\overset{j}{3}\overset{i}{4} \tag{iterate i, j; swap 4, 3; end}
+\end{align*}\]</span></p>
+<p>3rd level call 2 on 675:</p>
+<p><span class="math display">\[\begin{align*}
+    &amp;\overset{i}{6}7\overset{j}{5} \tag{p = 6} \\
+    \Rightarrow &amp;\overset{i}{\boxed{6}}7\overset{j}{\boxed{5}} \tag{iterate; swap} \\
+    \Rightarrow &amp;5\overset{ij}{7}6 \tag{iterate} \\
+    \Rightarrow &amp;\overset{j}{5}|7\overset{i}{6} \tag{end}
+\end{align*}\]</span></p>
+<p>4th level last call on 76:</p>
+<p><span class="math display">\[\begin{align*}
+    &amp;\overset{i}{7}\overset{j}{6} \tag{p = 7} \\
+    \Rightarrow &amp;\overset{j}{6}\overset{i}{7} \tag{iterate i, j; swap 7, 6; end}
+\end{align*}\]</span></p>
+<p>alltogether:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>3 6 5 0 1 7 4</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>1 0|5 6 3 7 4</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>0 1|4 3|6 7 5</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>   |3 4|5|7 6</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>         |6 7</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>=&gt; output: 0 1 3 4 5 6 7</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
@@ -914,14 +758,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../01/01.html" class="pagination-link" aria-label="Blatt 1">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Blatt 1</span></span>
+      <a href="../03/03.html" class="pagination-link" aria-label="Blatt 3">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Blatt 3</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../03/03.html" class="pagination-link" aria-label="Blatt 3">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Blatt 3</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
