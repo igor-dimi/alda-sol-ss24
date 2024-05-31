@@ -10,11 +10,14 @@ book:
     - 01/01.qmd
     - 02/02.qmd
     - 03/03.qmd
+    - 05/05.qmd
 
   downloads: pdf
 number-depth: 1 
 
 bibliography: references.bib
+
+highlight-style: pygments
 
 format:
   html:
