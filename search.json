@@ -134,7 +134,7 @@
     "href": "06/06.html#aufgabe-1",
     "title": "5  Blatt 6",
     "section": "",
-    "text": "Zuerst definieren wir folgende Python Funktion fuer Konvertierung von Basis 10 auf basis x:\n\n\n\n\n\n\nJetzt geben wir die folgende Python implementierung fuer KSort7() an, die Schluessel im Bereich \\([0, 7)\\) sortiert. Die Funktion erhaelt einen zusaetzlichen funktionalen Paremeter, dadurch die key() Funktion bestimmt wird. Beachte, dass danach die Elemente in Buckets hinzugefuegt werden der Zustand von Buckets ausgegeben wird. Am Ende werden die Buckets konkateniert und das Ergebniss zurueckgegeben",
+    "text": "Zuerst definieren wir folgende Python Funktion fuer Konvertierung die zahl x von Basis 10 auf basis base:\n\n\n\n\n\n\nJetzt geben wir die folgende Python implementierung fuer KSort7() an, die Schluessel im Bereich \\([0, 7)\\) sortiert. Die Funktion erhaelt einen zusaetzlichen funktionalen Paremeter, dadurch die key() Funktion bestimmt wird. Beachte, dass danach die Elemente in Buckets hinzugefuegt werden der Zustand von Buckets ausgegeben wird. Am Ende werden die Buckets konkateniert und das Ergebniss zurueckgegeben",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Blatt 6</span>"
     ]
