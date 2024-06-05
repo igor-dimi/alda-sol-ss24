@@ -24,8 +24,9 @@ A = [147, 44, 337, 528, 45, 622]
 Wir sehen, dass die Zahlen hoechstens aus 4 Ziffern bestehen. Somit $d = 4$. 
 
 2. Jetzt geben wir die folgende Python implementierung fuer `KSort7()` an, die Schluessel im
-   Bereich $[0, 7)$ sortiert. Die Funktion bekommt einen Zusaetzlichen funktionalen Paremeter,
-   der die `key()` Funktion bestimmt. Beachte, dass nach der Einfuegen in Buckets, der Zustand
+   Bereich $[0, 7)$ sortiert. Die Funktion erhaelt einen zusaetzlichen funktionalen Paremeter,
+   dadurch die `key()` Funktion bestimmt wird. Beachte, dass danach die Elemente in Buckets
+   hinzugefuegt werden der Zustand
    von Buckets ausgegeben wird. Am Ende werden die Buckets konkateniert und das Ergebniss
    zurueckgegeben
 
@@ -48,5 +49,22 @@ def KSort7(s, key) :
     return res
 ```
 
-Nun definieren die `LSDRadixSort7()` Funktion, die den Radix Sort algorithmus fuer Basis 7 implementiert
+Nun definieren die `LSDRadixSort7()` Funktion, die den Radix Sort algorithmus fuer Basis 7
+anhand `KSort7()` implementiert.
+
+```{python}
+def LSDRadixSort7(a) :
+    for i in range(4) :
+        print("d == ", i)
+        a = KSort7(a, lambda x : (x // 7**i) % 7)
+        print("")
+    return a
+```
+
+Am Ende jeder Iteration wird der Zustand von den Buckets anhand `KSort7()` ausgegeben.
+Wir rufen die Funktion auf $A$ auf und konvertieren das Ergebniss zu Basis 7:
+
+```{python}
+[convert(x, 7) for x in LSDRadixSort7(A)]
+```
 

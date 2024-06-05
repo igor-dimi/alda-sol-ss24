@@ -11,6 +11,8 @@ book:
     - 02/02.qmd
     - 03/03.qmd
     - 05/05.qmd
+    - 06/06.qmd
+
 
   downloads: pdf
 number-depth: 1 
