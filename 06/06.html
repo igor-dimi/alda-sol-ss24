@@ -248,16 +248,17 @@ window.Quarto = {
 <ol type="1">
 <li>Zuerst definieren wir folgende Python Funktion fuer Konvertierung von Basis 10 auf basis x:</li>
 </ol>
-<div id="bd7863ff" class="cell" data-execution_count="1">
+<div id="86c758b3" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> convert(x, base) :</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> []</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> (x <span class="op">&gt;</span> <span class="dv">0</span>) :</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        s.insert(<span class="dv">0</span>, <span class="bu">str</span>(x <span class="op">%</span> base))</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> x <span class="op">//</span> base</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">""</span>.join(s)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> x <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="st">'0'</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> []</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> (x <span class="op">&gt;</span> <span class="dv">0</span>) :</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        s.insert(<span class="dv">0</span>, <span class="bu">str</span>(x <span class="op">%</span> base))</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> x <span class="op">//</span> base</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">""</span>.join(s)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>und konvertieren die Zahlen in <span class="math inline">\(A\)</span> anhand dieser Funktion auf Basis 7:</p>
-<div id="55f65c9d" class="cell" data-execution_count="2">
+<div id="23a0085f" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> [<span class="dv">147</span>, <span class="dv">44</span>, <span class="dv">337</span>, <span class="dv">528</span>, <span class="dv">45</span>, <span class="dv">622</span>]</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>[convert(x, <span class="dv">7</span>) <span class="cf">for</span> x <span class="kw">in</span> A]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
@@ -268,7 +269,7 @@ window.Quarto = {
 <ol start="2" type="1">
 <li>Jetzt geben wir die folgende Python implementierung fuer <code>KSort7()</code> an, die Schluessel im Bereich <span class="math inline">\([0, 7)\)</span> sortiert. Die Funktion erhaelt einen zusaetzlichen funktionalen Paremeter, dadurch die <code>key()</code> Funktion bestimmt wird. Beachte, dass danach die Elemente in Buckets hinzugefuegt werden der Zustand von Buckets ausgegeben wird. Am Ende werden die Buckets konkateniert und das Ergebniss zurueckgegeben</li>
 </ol>
-<div id="c64d1a59" class="cell" data-execution_count="3">
+<div id="bb7c5f88" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sorts keys in range [0, 7)</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> KSort7(s, key) :</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># initialize orray of length 100 with empty buckets</span></span>
@@ -287,7 +288,7 @@ window.Quarto = {
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> res</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Nun definieren die <code>LSDRadixSort7()</code> Funktion, die den Radix Sort algorithmus fuer Basis 7 anhand <code>KSort7()</code> implementiert.</p>
-<div id="793b5f48" class="cell" data-execution_count="4">
+<div id="e616c64c" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> LSDRadixSort7(a) :</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>) :</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"d == "</span>, i)</span>
@@ -296,7 +297,7 @@ window.Quarto = {
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Am Ende jeder Iteration wird der Zustand von den Buckets anhand <code>KSort7()</code> ausgegeben. Wir rufen die Funktion auf <span class="math inline">\(A\)</span> auf und konvertieren das Ergebniss zu Basis 7:</p>
-<div id="04f63039" class="cell" data-execution_count="5">
+<div id="00f5c444" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>[convert(x, <span class="dv">7</span>) <span class="cf">for</span> x <span class="kw">in</span> LSDRadixSort7(A)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>d ==  0
