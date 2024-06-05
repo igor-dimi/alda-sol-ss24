@@ -34,15 +34,15 @@ Wir sehen, dass die Zahlen hoechstens aus 4 Ziffern bestehen. Somit $d = 4$.
 ```{python}
 # sorts keys in range [0, 7)
 def KSort7(s, key) :
-    # initialize orray of length 100 with empty buckets
+    # initialize array with 7 empty buckets
     b = []
     for i in range(7) : b.append([])
-    # place elements in buckets
+    # insert elements into buckets
     for el in s : b[key(el)].append(el)
     # print state of the buckets
     for i in range(7) :
         print("bucket ", i, ": ", list(map(str, [convert(x, 7) for x in b[i]])))
-    # array holding results
+    # declare array holding results
     res = []
     # append elements in buckets to res
     for i in range(7) :

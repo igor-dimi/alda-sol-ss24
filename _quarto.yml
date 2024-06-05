@@ -26,6 +26,8 @@ format:
     theme: cosmo
   pdf: 
     code-block-border-left: true
+    monofontoptions: 
+      - Scale=0.55
     include-in-header: 
       - text : |
           \usepackage{fvextra}
