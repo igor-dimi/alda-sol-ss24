@@ -1,0 +1,52 @@
+---
+title: Blatt 6
+---
+
+## Aufgabe 1
+
+1. Zuerst definieren wir folgende Python Funktion fuer Konvertierung von Basis 10 auf basis x:
+```{python}
+def convert(x, base) :
+    s = []
+    while (x > 0) :
+        s.insert(0, str(x % base))
+        x = x // base
+    return "".join(s)
+```
+
+und konvertieren die Zahlen in $A$ anhand dieser Funktion auf Basis 7:
+
+```{python}
+A = [147, 44, 337, 528, 45, 622]
+[convert(x, 7) for x in A]
+```
+
+Wir sehen, dass die Zahlen hoechstens aus 4 Ziffern bestehen. Somit $d = 4$. 
+
+2. Jetzt geben wir die folgende Python implementierung fuer `KSort7()` an, die Schluessel im
+   Bereich $[0, 7)$ sortiert. Die Funktion bekommt einen Zusaetzlichen funktionalen Paremeter,
+   der die `key()` Funktion bestimmt. Beachte, dass nach der Einfuegen in Buckets, der Zustand
+   von Buckets ausgegeben wird. Am Ende werden die Buckets konkateniert und das Ergebniss
+   zurueckgegeben
+
+```{python}
+# sorts keys in range [0, 7)
+def KSort7(s, key) :
+    # initialize orray of length 100 with empty buckets
+    b = []
+    for i in range(7) : b.append([])
+    # place elements in buckets
+    for el in s : b[key(el)].append(el)
+    # print state of the buckets
+    for i in range(7) :
+        print("bucket ", i, ": ", list(map(str, [convert(x, 7) for x in b[i]])))
+    # array holding results
+    res = []
+    # append elements in buckets to res
+    for i in range(7) :
+        for el in b[i] : res.append(el)
+    return res
+```
+
+Nun definieren die `LSDRadixSort7()` Funktion, die den Radix Sort algorithmus fuer Basis 7 implementiert
+
