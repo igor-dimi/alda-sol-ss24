@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Algorithms &amp; Data Structures Solutions - SoSe 24 - 4&nbsp; Blatt 5</title>
+<title>Algorithms &amp; Data Structures Solutions - SoSe 24 - 5&nbsp; Blatt 6</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../06/06.html" rel="next">
-<link href="../03/03.html" rel="prev">
+<link href="../05/05.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -144,7 +143,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../05/05.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Blatt 5</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../06/06.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Blatt 6</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -198,13 +197,13 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../05/05.html" class="sidebar-item-text sidebar-link active">
+  <a href="../05/05.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Blatt 5</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../06/06.html" class="sidebar-item-text sidebar-link">
+  <a href="../06/06.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Blatt 6</span></span></a>
   </div>
 </li>
@@ -218,12 +217,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#aufgabe-3-sortieren" id="toc-aufgabe-3-sortieren" class="nav-link active" data-scroll-target="#aufgabe-3-sortieren">Aufgabe 3 (Sortieren)</a>
-  <ul class="collapse">
-  <li><a href="#insertion-sort" id="toc-insertion-sort" class="nav-link" data-scroll-target="#insertion-sort">Insertion Sort</a></li>
-  <li><a href="#merge-sort" id="toc-merge-sort" class="nav-link" data-scroll-target="#merge-sort">Merge Sort</a></li>
-  <li><a href="#quick-sort" id="toc-quick-sort" class="nav-link" data-scroll-target="#quick-sort">Quick Sort</a></li>
-  </ul></li>
+  <li><a href="#aufgabe-1" id="toc-aufgabe-1" class="nav-link active" data-scroll-target="#aufgabe-1">Aufgabe 1</a></li>
   </ul>
 </nav>
     </div>
@@ -232,7 +226,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Blatt 5</span></h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Blatt 6</span></h1>
 </div>
 
 
@@ -249,108 +243,105 @@ window.Quarto = {
 </header>
 
 
-<section id="aufgabe-3-sortieren" class="level2">
-<h2 class="anchored" data-anchor-id="aufgabe-3-sortieren">Aufgabe 3 (Sortieren)</h2>
-<p><strong>Matrikel Nr</strong>: 3650174</p>
-<section id="insertion-sort" class="level3">
-<h3 class="anchored" data-anchor-id="insertion-sort">Insertion Sort</h3>
-<p>Mit der folgenden Python Implementierung fuer Insertion-sort wird nach jedem Insert der Zustand des Arrays ausgegeben:</p>
-<div id="482680d5" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> insertion_sort(a) :</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(a)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># invariant: sorted a[0..i]</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, n) :</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="co"># insert i in the right position</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        j <span class="op">=</span> i <span class="op">-</span> <span class="dv">1</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        el <span class="op">=</span> a[i]</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> el <span class="op">&lt;</span> a[j] <span class="kw">and</span> j <span class="op">&gt;</span> <span class="dv">0</span> :</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>            a[j <span class="op">+</span> <span class="dv">1</span>] <span class="op">=</span> a[j]</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>            j <span class="op">=</span> j <span class="op">-</span> <span class="dv">1</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="co"># el &gt;= a[j] or j == 0</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> el <span class="op">&lt;</span> a[j] : <span class="co"># j == 0</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>            a[<span class="dv">1</span>] <span class="op">=</span> a[<span class="dv">0</span>]</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>            a[<span class="dv">0</span>] <span class="op">=</span> el</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> : <span class="co"># el &gt;= a[j] </span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>            a[j <span class="op">+</span> <span class="dv">1</span>] <span class="op">=</span> el</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"after insertion "</span>, i, <span class="st">": "</span>, a)</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>insertion_sort([<span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">5</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">7</span>, <span class="dv">4</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="aufgabe-1" class="level2">
+<h2 class="anchored" data-anchor-id="aufgabe-1">Aufgabe 1</h2>
+<ol type="1">
+<li>Zuerst definieren wir folgende Python Funktion fuer Konvertierung von Basis 10 auf basis x:</li>
+</ol>
+<div id="bd7863ff" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> convert(x, base) :</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> []</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> (x <span class="op">&gt;</span> <span class="dv">0</span>) :</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        s.insert(<span class="dv">0</span>, <span class="bu">str</span>(x <span class="op">%</span> base))</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> x <span class="op">//</span> base</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">""</span>.join(s)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>und konvertieren die Zahlen in <span class="math inline">\(A\)</span> anhand dieser Funktion auf Basis 7:</p>
+<div id="55f65c9d" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> [<span class="dv">147</span>, <span class="dv">44</span>, <span class="dv">337</span>, <span class="dv">528</span>, <span class="dv">45</span>, <span class="dv">622</span>]</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>[convert(x, <span class="dv">7</span>) <span class="cf">for</span> x <span class="kw">in</span> A]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>['300', '62', '661', '1353', '63', '1546']</code></pre>
+</div>
+</div>
+<p>Wir sehen, dass die Zahlen hoechstens aus 4 Ziffern bestehen. Somit <span class="math inline">\(d = 4\)</span>.</p>
+<ol start="2" type="1">
+<li>Jetzt geben wir die folgende Python implementierung fuer <code>KSort7()</code> an, die Schluessel im Bereich <span class="math inline">\([0, 7)\)</span> sortiert. Die Funktion erhaelt einen zusaetzlichen funktionalen Paremeter, dadurch die <code>key()</code> Funktion bestimmt wird. Beachte, dass danach die Elemente in Buckets hinzugefuegt werden der Zustand von Buckets ausgegeben wird. Am Ende werden die Buckets konkateniert und das Ergebniss zurueckgegeben</li>
+</ol>
+<div id="c64d1a59" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sorts keys in range [0, 7)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> KSort7(s, key) :</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># initialize orray of length 100 with empty buckets</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    b <span class="op">=</span> []</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">7</span>) : b.append([])</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># place elements in buckets</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> el <span class="kw">in</span> s : b[key(el)].append(el)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># print state of the buckets</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">7</span>) :</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"bucket "</span>, i, <span class="st">": "</span>, <span class="bu">list</span>(<span class="bu">map</span>(<span class="bu">str</span>, [convert(x, <span class="dv">7</span>) <span class="cf">for</span> x <span class="kw">in</span> b[i]])))</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># array holding results</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> []</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># append elements in buckets to res</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">7</span>) :</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> el <span class="kw">in</span> b[i] : res.append(el)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> res</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nun definieren die <code>LSDRadixSort7()</code> Funktion, die den Radix Sort algorithmus fuer Basis 7 anhand <code>KSort7()</code> implementiert.</p>
+<div id="793b5f48" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> LSDRadixSort7(a) :</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>) :</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"d == "</span>, i)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>        a <span class="op">=</span> KSort7(a, <span class="kw">lambda</span> x : (x <span class="op">//</span> <span class="dv">7</span><span class="op">**</span>i) <span class="op">%</span> <span class="dv">7</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">""</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Am Ende jeder Iteration wird der Zustand von den Buckets anhand <code>KSort7()</code> ausgegeben. Wir rufen die Funktion auf <span class="math inline">\(A\)</span> auf und konvertieren das Ergebniss zu Basis 7:</p>
+<div id="04f63039" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>[convert(x, <span class="dv">7</span>) <span class="cf">for</span> x <span class="kw">in</span> LSDRadixSort7(A)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>after insertion  1 :  [3, 6, 5, 0, 1, 7, 4]
-after insertion  2 :  [3, 5, 6, 0, 1, 7, 4]
-after insertion  3 :  [0, 3, 5, 6, 1, 7, 4]
-after insertion  4 :  [0, 1, 3, 5, 6, 7, 4]
-after insertion  5 :  [0, 1, 3, 5, 6, 7, 4]
-after insertion  6 :  [0, 1, 3, 4, 5, 6, 7]</code></pre>
+<pre><code>d ==  0
+bucket  0 :  ['300']
+bucket  1 :  ['661']
+bucket  2 :  ['62']
+bucket  3 :  ['1353', '63']
+bucket  4 :  []
+bucket  5 :  []
+bucket  6 :  ['1546']
+
+d ==  1
+bucket  0 :  ['300']
+bucket  1 :  []
+bucket  2 :  []
+bucket  3 :  []
+bucket  4 :  ['1546']
+bucket  5 :  ['1353']
+bucket  6 :  ['661', '62', '63']
+
+d ==  2
+bucket  0 :  ['62', '63']
+bucket  1 :  []
+bucket  2 :  []
+bucket  3 :  ['300', '1353']
+bucket  4 :  []
+bucket  5 :  ['1546']
+bucket  6 :  ['661']
+
+d ==  3
+bucket  0 :  ['62', '63', '300', '661']
+bucket  1 :  ['1353', '1546']
+bucket  2 :  []
+bucket  3 :  []
+bucket  4 :  []
+bucket  5 :  []
+bucket  6 :  []
+</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>[0, 1, 3, 4, 5, 6, 7]</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>['62', '63', '300', '661', '1353', '1546']</code></pre>
 </div>
 </div>
-</section>
-<section id="merge-sort" class="level3">
-<h3 class="anchored" data-anchor-id="merge-sort">Merge Sort</h3>
-<p>Siehe Abbildung:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="imgs/merge-sort.png" class="img-fluid figure-img" style="width:75.0%"></p>
-<figcaption>merge sort</figcaption>
-</figure>
-</div>
-</section>
-<section id="quick-sort" class="level3">
-<h3 class="anchored" data-anchor-id="quick-sort">Quick Sort</h3>
-<p>1st call on 365017:</p>
-<p><span class="math display">\[\begin{align*}
-    &amp;\overset{i}{3}65017\overset{j}{4} \tag{p = 2} \\
-    \Rightarrow &amp;\overset{i}{3}650\overset{j}{1}74 \tag{iterate i, j} \\
-    \Rightarrow &amp;\boxed{3}650\boxed{1}74 \tag{swap 3, 1} \\
-    \Rightarrow &amp;1\overset{i}{6}5\overset{j}{0}374 \tag{iterate i, j} \\
-    \Rightarrow &amp;1\boxed{6}5\boxed{0}374 \tag{swap 6, 0} \\
-    \Rightarrow &amp;10\overset{i,j}{5}6374 \tag{iterate i, j} \\
-    \Rightarrow &amp;1\overset{j}{0}|\overset{i}{5}6374 \tag{end}
-\end{align*}\]</span></p>
-<p>2nd level call 1 on 10:</p>
-<p><span class="math display">\[\begin{align*}
-    &amp;\overset{i}{1}\overset{j}{0} \tag{p = 1} \\
-    \Rightarrow &amp;\overset{j}{0}\overset{i}{1} \tag{iterate i, j; swap 1, 0; end}
-\end{align*}\]</span></p>
-<p>2nd level call 2 on 56374:</p>
-<p><span class="math display">\[\begin{align*}
-    &amp;\overset{i}{\boxed{5}}637\overset{j}{\boxed{4}} \tag{p = 5, iterate, swap 5, 4} \\
-    \Rightarrow &amp;4\overset{i}63\overset{j}75 \tag{iterate} \\
-    \Rightarrow &amp;4\overset{i}{\boxed{6}}\overset{j}{\boxed{3}}75 \tag{swap} \\
-    \Rightarrow &amp;4\overset{j}{3}|\overset{i}{6}75 \tag{end}
-\end{align*}\]</span></p>
-<p>3rd level call 1 on 43:</p>
-<p><span class="math display">\[\begin{align*}
-    &amp;\overset{i}{4}\overset{j}{3} \tag{p = 4} \\
-    \Rightarrow &amp;\overset{j}{3}\overset{i}{4} \tag{iterate i, j; swap 4, 3; end}
-\end{align*}\]</span></p>
-<p>3rd level call 2 on 675:</p>
-<p><span class="math display">\[\begin{align*}
-    &amp;\overset{i}{6}7\overset{j}{5} \tag{p = 6} \\
-    \Rightarrow &amp;\overset{i}{\boxed{6}}7\overset{j}{\boxed{5}} \tag{iterate; swap} \\
-    \Rightarrow &amp;5\overset{ij}{7}6 \tag{iterate} \\
-    \Rightarrow &amp;\overset{j}{5}|7\overset{i}{6} \tag{end}
-\end{align*}\]</span></p>
-<p>4th level last call on 76:</p>
-<p><span class="math display">\[\begin{align*}
-    &amp;\overset{i}{7}\overset{j}{6} \tag{p = 7} \\
-    \Rightarrow &amp;\overset{j}{6}\overset{i}{7} \tag{iterate i, j; swap 7, 6; end}
-\end{align*}\]</span></p>
-<p>alltogether:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>3 6 5 0 1 7 4</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>1 0|5 6 3 7 4</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>0 1|4 3|6 7 5</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>   |3 4|5|7 6</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>         |6 7</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>=&gt; output: 0 1 3 4 5 6 7</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -765,14 +756,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../03/03.html" class="pagination-link" aria-label="Blatt 3">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Blatt 3</span></span>
+      <a href="../05/05.html" class="pagination-link" aria-label="Blatt 5">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Blatt 5</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../06/06.html" class="pagination-link" aria-label="Blatt 6">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Blatt 6</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
