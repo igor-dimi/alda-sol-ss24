@@ -4,7 +4,7 @@ title: Blatt 6
 
 ## Aufgabe 1
 
-1. Zuerst definieren wir folgende Python Funktion fuer Konvertierung von Basis 10 auf basis x:
+1. Zuerst definieren wir folgende Python Funktion fuer Konvertierung die zahl `x` von Basis 10 auf basis `base`:
 ```{python}
 def convert(x, base) :
     if x == 0: return '0'
