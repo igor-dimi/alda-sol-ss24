@@ -24,7 +24,8 @@ highlight-style: pygments
 format:
   html:
     theme: cosmo
-  pdf:
+  pdf: 
+    code-block-border-left: true
     include-in-header: 
       - text : |
           \usepackage{fvextra}

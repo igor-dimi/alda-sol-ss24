@@ -7,6 +7,7 @@ title: Blatt 6
 1. Zuerst definieren wir folgende Python Funktion fuer Konvertierung von Basis 10 auf basis x:
 ```{python}
 def convert(x, base) :
+    if x == 0: return '0'
     s = []
     while (x > 0) :
         s.insert(0, str(x % base))
