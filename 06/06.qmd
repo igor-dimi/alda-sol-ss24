@@ -2,7 +2,7 @@
 title: Blatt 6
 ---
 
-## Aufgabe 1
+## Aufgabe 1 - Radix Sort
 
 1. Zuerst definieren wir folgende Python Funktion fuer Konvertierung die zahl `x` von Basis 10 auf basis `base`:
 ```{python}
@@ -69,3 +69,45 @@ Wir rufen die Funktion auf $A$ auf und konvertieren das Ergebniss zu Basis 7:
 [convert(x, 7) for x in LSDRadixSort7(A)]
 ```
 
+## Aufgabe 2 - Pivotwahl
+
+1) Ziehen mit Zuruecklegen $\Rightarrow |\Omega| = \binom{n + 5 - 1}{5} = \binom{n + 4}{5}$.
+Fuer ein beliebiges Ergebniss des Experiments ist die Riehenfolge und somit das mittlere
+Element fixiert, z.B. $i$. 
+
+* Fuer die kleineren 2 Elemente waehlt man aus der Menge
+$\{1,\dots, i\}$ mit Zuruecklegen: $\binom{i + 2 - 1}{2} = \binom{i + 1}{2}$
+* Fuer die groesseren 2 Elemente waehlt man aus der Menge $\{i,\dots, n\}$
+  mit Zuruecklegen: $\binom{n - i + 1 + 2 - 1}{2} = \binom{n - i + 2}{2}$
+
+Diese Waehle sind unabhaengig und fuer den beschriebenen Ereigniss laeuft $i$ von $n/4 + 1$ bis $3n/4 - 1$. 
+Somit: 
+$$
+|E| = \sum_{i = n/4 + 1}^{3n/4 - 1}\binom{i + 1}{2}\binom{n - i + 2}{2}
+$$. 
+
+Dann die gesuchte Wahrsceinnlichkeit: 
+
+\begin{align*}
+p_n &= \frac{|E|}{|\Omega|} \\
+    &= \frac{\sum_{i = n/4 + 1}^{3n/4 - 1}\binom{i + 1}{2}\binom{n - i + 2}{2}}{\binom{n + 4}{5}}
+\end{align*}
+
+Wir koennten diese Formel nicht weiter algebraisch vereinfachen. 
+Das Software fuer symbolische Mathematik Mathematica™ lieferte den Ausdruck
+
+$$
+p_n = \frac{203 n^4+744 n^3+592 n^2-384 n}{256 n (n+1) (n+3) (n+4)}
+$$
+
+Fuer $n=100$ ist diese Wahrscheinlichkeit $p_{100} \approx 0.77$
+
+2) Wahrscheinlichkeit eines Misserfolgs: $1 - p_n$. Der beschriebene Vorgang
+   entspricht einer geometrischen Verteilung mit $p = 1 - p_n$. Der Erwartungswert
+   einer geometrischen Verteilung ist gegeben als:
+
+$$
+    \mu = \frac{1}{p} = \frac{1}{1 - p_n}
+$$
+
+Fuer $n = 100$ $\mu \approx \frac{1}{1 - 0.77} \approx 4.4$
