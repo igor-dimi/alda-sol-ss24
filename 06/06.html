@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -217,7 +217,8 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#aufgabe-1" id="toc-aufgabe-1" class="nav-link active" data-scroll-target="#aufgabe-1">Aufgabe 1</a></li>
+  <li><a href="#aufgabe-1---radix-sort" id="toc-aufgabe-1---radix-sort" class="nav-link active" data-scroll-target="#aufgabe-1---radix-sort">Aufgabe 1 - Radix Sort</a></li>
+  <li><a href="#aufgabe-2---pivotwahl" id="toc-aufgabe-2---pivotwahl" class="nav-link" data-scroll-target="#aufgabe-2---pivotwahl">Aufgabe 2 - Pivotwahl</a></li>
   </ul>
 </nav>
     </div>
@@ -243,12 +244,12 @@ window.Quarto = {
 </header>
 
 
-<section id="aufgabe-1" class="level2">
-<h2 class="anchored" data-anchor-id="aufgabe-1">Aufgabe 1</h2>
+<section id="aufgabe-1---radix-sort" class="level2">
+<h2 class="anchored" data-anchor-id="aufgabe-1---radix-sort">Aufgabe 1 - Radix Sort</h2>
 <ol type="1">
 <li>Zuerst definieren wir folgende Python Funktion fuer Konvertierung die zahl <code>x</code> von Basis 10 auf basis <code>base</code>:</li>
 </ol>
-<div id="8c4ce0c5" class="cell" data-execution_count="1">
+<div id="0343800b" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> convert(x, base) :</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> x <span class="op">==</span> <span class="dv">0</span>: <span class="cf">return</span> <span class="st">'0'</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> []</span>
@@ -258,7 +259,7 @@ window.Quarto = {
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">""</span>.join(s)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>und konvertieren die Zahlen in <span class="math inline">\(A\)</span> anhand dieser Funktion auf Basis 7:</p>
-<div id="f717e6f7" class="cell" data-execution_count="2">
+<div id="a2643d99" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> [<span class="dv">147</span>, <span class="dv">44</span>, <span class="dv">337</span>, <span class="dv">528</span>, <span class="dv">45</span>, <span class="dv">622</span>]</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>[convert(x, <span class="dv">7</span>) <span class="cf">for</span> x <span class="kw">in</span> A]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
@@ -269,7 +270,7 @@ window.Quarto = {
 <ol start="2" type="1">
 <li>Jetzt geben wir die folgende Python implementierung fuer <code>KSort7()</code> an, die Schluessel im Bereich <span class="math inline">\([0, 7)\)</span> sortiert. Die Funktion erhaelt einen zusaetzlichen funktionalen Paremeter, dadurch die <code>key()</code> Funktion bestimmt wird. Beachte, dass danach die Elemente in Buckets hinzugefuegt werden der Zustand von Buckets ausgegeben wird. Am Ende werden die Buckets konkateniert und das Ergebniss zurueckgegeben</li>
 </ol>
-<div id="9488d3e3" class="cell" data-execution_count="3">
+<div id="e188c5b8" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sorts keys in range [0, 7)</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> KSort7(s, key) :</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># initialize array with 7 empty buckets</span></span>
@@ -288,7 +289,7 @@ window.Quarto = {
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> res</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Nun definieren die <code>LSDRadixSort7()</code> Funktion, die den Radix Sort algorithmus fuer Basis 7 anhand <code>KSort7()</code> implementiert.</p>
-<div id="c4a6844e" class="cell" data-execution_count="4">
+<div id="f022db9c" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> LSDRadixSort7(a) :</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>) :</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"d == "</span>, i)</span>
@@ -297,7 +298,7 @@ window.Quarto = {
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Am Ende jeder Iteration wird der Zustand von den Buckets anhand <code>KSort7()</code> ausgegeben. Wir rufen die Funktion auf <span class="math inline">\(A\)</span> auf und konvertieren das Ergebniss zu Basis 7:</p>
-<div id="7fdb3a4d" class="cell" data-execution_count="5">
+<div id="0d5ddfe1" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>[convert(x, <span class="dv">7</span>) <span class="cf">for</span> x <span class="kw">in</span> LSDRadixSort7(A)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>d ==  0
@@ -341,6 +342,36 @@ bucket  6 :  []
 <pre><code>['62', '63', '300', '661', '1353', '1546']</code></pre>
 </div>
 </div>
+</section>
+<section id="aufgabe-2---pivotwahl" class="level2">
+<h2 class="anchored" data-anchor-id="aufgabe-2---pivotwahl">Aufgabe 2 - Pivotwahl</h2>
+<ol type="1">
+<li>Ziehen mit Zuruecklegen <span class="math inline">\(\Rightarrow |\Omega| = \binom{n + 5 - 1}{5} = \binom{n + 4}{5}\)</span>. Fuer ein beliebiges Ergebniss des Experiments ist die Riehenfolge und somit das mittlere Element fixiert, z.B. <span class="math inline">\(i\)</span>.</li>
+</ol>
+<ul>
+<li>Fuer die kleineren 2 Elemente waehlt man aus der Menge <span class="math inline">\(\{1,\dots, i\}\)</span> mit Zuruecklegen: <span class="math inline">\(\binom{i + 2 - 1}{2} = \binom{i + 1}{2}\)</span></li>
+<li>Fuer die groesseren 2 Elemente waehlt man aus der Menge <span class="math inline">\(\{i,\dots, n\}\)</span> mit Zuruecklegen: <span class="math inline">\(\binom{n - i + 1 + 2 - 1}{2} = \binom{n - i + 2}{2}\)</span></li>
+</ul>
+<p>Diese Waehle sind unabhaengig und fuer den beschriebenen Ereigniss laeuft <span class="math inline">\(i\)</span> von <span class="math inline">\(n/4 + 1\)</span> bis <span class="math inline">\(3n/4 - 1\)</span>. Somit: <span class="math display">\[
+|E| = \sum_{i = n/4 + 1}^{3n/4 - 1}\binom{i + 1}{2}\binom{n - i + 2}{2}
+\]</span>.</p>
+<p>Dann die gesuchte Wahrsceinnlichkeit:</p>
+<p><span class="math display">\[\begin{align*}
+p_n &amp;= \frac{|E|}{|\Omega|} \\
+    &amp;= \frac{\sum_{i = n/4 + 1}^{3n/4 - 1}\binom{i + 1}{2}\binom{n - i + 2}{2}}{\binom{n + 4}{5}}
+\end{align*}\]</span></p>
+<p>Wir koennten diese Formel nicht weiter algebraisch vereinfachen. Das Software fuer symbolische Mathematik Mathematica™ lieferte den Ausdruck</p>
+<p><span class="math display">\[
+p_n = \frac{203 n^4+744 n^3+592 n^2-384 n}{256 n (n+1) (n+3) (n+4)}
+\]</span></p>
+<p>Fuer <span class="math inline">\(n=100\)</span> ist diese Wahrscheinlichkeit <span class="math inline">\(p_{100} \approx 0.77\)</span></p>
+<ol start="2" type="1">
+<li>Wahrscheinlichkeit eines Misserfolgs: <span class="math inline">\(1 - p_n\)</span>. Der beschriebene Vorgang entspricht einer geometrischen Verteilung mit <span class="math inline">\(p = 1 - p_n\)</span>. Der Erwartungswert einer geometrischen Verteilung ist gegeben als:</li>
+</ol>
+<p><span class="math display">\[
+    \mu = \frac{1}{p} = \frac{1}{1 - p_n}
+\]</span></p>
+<p>Fuer <span class="math inline">\(n = 100\)</span> <span class="math inline">\(\mu \approx \frac{1}{1 - 0.77} \approx 4.4\)</span></p>
 
 
 </section>
