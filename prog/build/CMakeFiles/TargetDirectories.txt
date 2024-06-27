@@ -1,0 +1,4 @@
+/home/igord/Documents/uni/ss24/alda/sol/prog/build/CMakeFiles/tests.dir
+/home/igord/Documents/uni/ss24/alda/sol/prog/build/CMakeFiles/sort.dir
+/home/igord/Documents/uni/ss24/alda/sol/prog/build/CMakeFiles/edit_cache.dir
+/home/igord/Documents/uni/ss24/alda/sol/prog/build/CMakeFiles/rebuild_cache.dir

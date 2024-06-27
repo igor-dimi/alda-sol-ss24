@@ -1,0 +1,1 @@
+/usr/bin/c++  -Wall -Wextra -Wpedantic -Werror -g -rdynamic CMakeFiles/sort.dir/sort.cpp.o -o sort
