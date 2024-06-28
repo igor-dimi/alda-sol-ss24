@@ -1,5 +1,5 @@
-#ifndef LIST_HPP
-#define LIST_HPP
+#ifndef LIS_H
+#define LIS_H
 
 #include <cassert>
 #include <iostream>
@@ -18,16 +18,32 @@ public:
 
     const Value &get_value() { return value; }
 
+    // ~Item()
+    // {
+    //   std::cout << "destroying item with value: " << get_value() << std::endl;
+    // }
+
   private:
     Value value;
   };
 
   /// Erzeugt eine leere Liste
-  List() {}
+  List()
+  {
+    // Aufgabe 2
+    last = &dummy; // initially list empty; last points to dummy.
+  }
 
   /// Wir loeschen den Copy-Konstruktor. Damit ist es nicht mehr
   /// moeglich aus versehen eine teure Kopie der Liste zu erstellen.
   List(List &) = delete;
+
+
+  //Aufgabe 1: List Destructor
+  ~List()
+  {
+    while (!empty()) pop_front();
+  }
 
   /// Gibt genau dann `true` zurueck, wenn die Liste leer ist.
   ///
@@ -63,6 +79,11 @@ public:
   /// ```
   Item *push_front(Value val) {
     auto new_item = std::make_unique<Item>(val);
+    
+    // Aufgabe 2:
+    // if list empty update last to point to new_item 
+    if (empty()) last = new_item.get();
+
     new_item->next = std::move(dummy.next);
     dummy.next = std::move(new_item);
 
@@ -161,7 +182,12 @@ public:
     assert(!!item); // Tipp: `!!item` ist ein short-cut für
                     // `static_cast<bool>(item)`
     assert(!item->next);
-    return nullptr;
+
+    // Aufgabe 2: 
+    last->next = std::move(item);
+    last = last->next.get();
+    num_items++;
+    return last;
   }
 
   /// Iteriert durch die Liste und ruft `predicate` fuer jedes Element auf.
@@ -179,12 +205,25 @@ public:
   /// std::cout << lst_even << std::endl; // gibt "[0, 2, 4, 6, 8]" aus.
   /// ```
   template <typename Predicate>
-  void move_into_if(List &append_to_if_true, Predicate &&predicate) {
-    const size_t initial_size = size() + append_to_if_true.size();
+  void move_into_if(List &other, Predicate &&predicate) {
+    const size_t initial_size = size() + other.size();
     (void)initial_size; // verhindert eine Warnung, falls assert wegoptimiert
     // wurde
 
-    assert(size() + append_to_if_true.size() == initial_size);
+    Item* previous = &dummy;
+    Item* current = previous->next.get();
+    while (current != nullptr) { 
+      if (predicate(current->get_value())) {
+        auto extracted = extract_after(*previous);
+        current = previous->next.get();
+        other.push_back_item(std::move(extracted));
+      }
+      else {
+        previous = previous->next.get();
+        current = previous->next.get();
+      }
+    }
+    assert(size() + other.size() == initial_size);
   }
 
   /// Hängt die übergebene Liste an die aktuelle Liste an; die übergebene Liste
@@ -201,13 +240,17 @@ public:
   /// std::cout << lst2 << std::endl; // gibt "[]" aus.
   /// ```
   void concat(List &other) {
-    (void)other; // verhindert Warnung; kann entfernt werden, sobald die
+    // (void)other; // verhindert Warnung; kann entfernt werden, sobald die
     // auskommentierte Implementierung genutzt wird.
 
-    // last->next = std::move(other.dummy.next);
-    // num_items += other.num_items;
-    // other.num_items = 0;
-    // other.last = &other.dummy;
+    last->next = std::move(other.dummy.next);
+
+    // Aufgabe 3 (this was the mistake)
+    last = other.last; // comment this line out to get test_concat_twice() to fail
+
+    num_items += other.num_items;
+    other.num_items = 0;
+    other.last = &other.dummy;
   }
 
   /// Gibt genau dann `true` zurueck, wenn die Liste sortiert ist.
@@ -252,16 +295,33 @@ public:
   /// ```
   uint64_t sort() { return 0; }
 
+  // traverse list elements and print them out to cout with a
+  // while loop
+  void traverse() {
+    Item* current = dummy.next.get();
+    while (current) {
+      std::cout << current->get_value() << " ";
+      current = current->next.get();
+    }
+  }
+
 private:
   Item dummy;
 
+  // Aufgabe 2
+  Item* last; //points to the last element
+
   size_t num_items{0};
 
-  std::unique_ptr<Item> extract_after(Item &before) {
-    assert(before.next);
+  std::unique_ptr<Item> extract_after(Item &it) {
+    assert(it.next);
 
-    auto popped = std::move(before.next);
-    before.next = std::move(popped->next);
+    auto popped = std::move(it.next);
+
+    // Aufgabe 2:
+    // if to be extracted element is last update last
+    if (last == popped.get()) last = &it;
+    it.next = std::move(popped->next);
 
     assert(!popped->next);
     num_items--;
@@ -270,4 +330,5 @@ private:
   }
 };
 
-#endif // LIST_HPP
+#endif // !LIS_H
+
