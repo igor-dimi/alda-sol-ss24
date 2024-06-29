@@ -239,6 +239,13 @@ int main()
         cout << "l1: " << l1 << endl;
         cout << "l2: " << l2 << endl;
 
+        List l5;
+        l5.push_back(20);
+        cout << "concatenating to l1 again: " << endl;
+        l1.concat(l5);
+        cout << "l1: " << l1 << endl;
+        cout << "l5: " << l5 << endl;
+
         List l3;
         l1.concat(l3);
         cout << "after concat with an empty list: " << endl;
@@ -250,6 +257,7 @@ int main()
         cout << "concatenating to an empty list: " << endl;
         cout << "l4: " << l4 << endl;
         cout << "l1: " << l1 << endl;
+
 
     }
 
@@ -298,8 +306,24 @@ int main()
         stringstream ss2;
         ss2 << l1;
         cout << "ss2: " << ss.str() << endl;
+    }
 
-
+    {
+        using namespace std;
+        cout << endl << "test sort: " << endl;
+        List l;
+        l.push_back(3);
+        l.push_back(1);
+        l.push_back(2);
+        l.push_back(4);
+        l.push_back(10);
+        l.push_back(-3);
+        l.push_back(20);
+        l.push_back(9);
+        std::cout << "l: " << l << std::endl;
+        int k = l.sort();
+        std::cout << "sorted l: " << l << std::endl; // gibt "[1, 2, 3, 4]" aus.
+        std::cout << "k: " << k << std::endl;
 
     }
 

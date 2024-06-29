@@ -293,7 +293,42 @@ public:
   /// lst.sort();
   /// std::cout << lst << std::endl; // gibt "[1, 2, 3, 4]" aus.
   /// ```
-  uint64_t sort() { return 0; }
+  uint64_t sort()
+  {
+    uint64_t k = 0;
+
+    if (dummy.next.get() == last) return 0;
+
+    List a;
+    List b;
+    List c;
+
+
+    auto pivot_item = pop_front();
+    auto pivot_el = pivot_item->get_value();
+    b.push_back_item(std::move(pivot_item));
+
+
+    auto is_less_pivot = [&] (const List::Value& val) {return val < pivot_el;};
+    auto is_equal_pivot = [&] (const List::Value& val) {return val == pivot_el;};
+    auto is_greater_pivot = [&] (const List::Value& val) {return val > pivot_el;};
+
+    this->move_into_if(a, is_less_pivot);
+    k += a.size();
+    this->move_into_if(b, is_equal_pivot);
+    k += b.size();
+    this->move_into_if(c, is_greater_pivot);
+    k += c.size();
+
+    if (!a.empty()) k += a.sort();
+    if (!c.empty()) k += c.sort();
+
+    if (!a.empty()) this->concat(a);
+    if (!b.empty()) this->concat(b);
+    if (!c.empty()) this->concat(c);
+
+    return k;
+  }
 
   // traverse list elements and print them out to cout with a
   // while loop

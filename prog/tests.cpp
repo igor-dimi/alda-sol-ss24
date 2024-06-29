@@ -253,6 +253,37 @@ bool test_move_into_append()
 
 }
 
+// Aufgabe 5: testing quicksort
+bool test_quick_sort()
+{
+  List l;
+  l.push_back(3);
+  l.push_back(1);
+  l.push_back(2);
+  l.push_back(4);
+  l.push_back(10);
+  l.push_back(-3);
+  l.push_back(20);
+  l.push_back(9);
+  
+  std::stringstream ss;
+  int k = l.sort();
+  ss << l;
+  fail_unless(l.is_sorted());
+  
+  std::cout << "number of comparisons: " << k << std::endl;
+
+  List l2;
+  for (int i = 0; i < 1000; i++) l2.push_front(i);
+  int k2 = l2.sort();
+
+  fail_unless(l.is_sorted());
+  std::cout << "number of comparisons: " << k2 << std::endl;
+
+
+  return true;
+}
+
 bool test_foreach() {
   List lst;
 
@@ -323,6 +354,10 @@ int main() {
   run_test(test_move_into_if_even);
   run_test(test_move_into_if_greater_5);
   run_test(test_move_into_append);
+
+
+  // Aufgabe 5
+  run_test(test_quick_sort);
 
 
 
